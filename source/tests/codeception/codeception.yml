@@ -1,0 +1,9 @@
+include:
+  - common
+  - console
+  - backend
+paths:
+  log: _logs
+
+settings:
+  colors: true

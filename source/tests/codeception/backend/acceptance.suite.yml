@@ -1,0 +1,8 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser
+        - tests\codeception\common\_support\FixtureHelper
+    config:
+        PhpBrowser:
+            url: http://127.0.0.1:80
