@@ -3,7 +3,7 @@
 namespace tests\codeception\backend\unit\models;
 
 use tests\codeception\backend\_support\BaseModelTestCase;
-use backend\models\base\Employee;
+use backend\models\Employee;
 use yii\web\IdentityInterface;
 
 /**
