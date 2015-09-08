@@ -2,36 +2,9 @@
 
 use yii\db\Migration;
 
-class rbac extends Migration {
-
-    /**
-     *
-     * @var \yii\rbac\ManagerInterface
-     */
-    private $auth;
-
-    public function init() {
-        parent::init();
-        $this->auth = Yii::$app->authManager;
-    }
-
-    public function up() {
-        return true;
-    }
-
-    public function down() {
-        $this->auth->removeAll();
-        return true;
-    }
-
-}
-
 class m150813_190637_v_1_0_0 extends Migration {
 
     public function up() {
-        $rbacMigrate = new rbac();
-        $rbacMigrate->up();
-
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
@@ -57,8 +30,6 @@ class m150813_190637_v_1_0_0 extends Migration {
 
     public function down() {
         $this->dropTable('employee');
-        $rbacMigrate = new rbac();
-        $rbacMigrate->down();
         return true;
     }
 
