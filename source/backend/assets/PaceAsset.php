@@ -13,7 +13,5 @@ class PaceAsset extends AssetBundleExt {
     public $js = [
         'pace',
     ];
-    public $depends = [
-    ];
 
 }
