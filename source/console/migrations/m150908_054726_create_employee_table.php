@@ -1,14 +1,10 @@
 <?php
 
-use yii\db\Migration;
+use console\components\BaseMigration;
 
-class m150813_190637_v_1_0_0 extends Migration {
+class m150908_054726_create_employee_table extends BaseMigration {
 
     public function up() {
-        $tableOptions = null;
-        if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
-        }
         $this->createTable('employee', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull()->unique(),
@@ -24,7 +20,7 @@ class m150813_190637_v_1_0_0 extends Migration {
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-                ], $tableOptions);
+                ], $this->tableOptions);
         return true;
     }
 
