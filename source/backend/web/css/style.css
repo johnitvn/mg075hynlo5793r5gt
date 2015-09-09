@@ -5010,8 +5010,6 @@ body.skin-3 {
     }
 }
 
-
-
 /* Tabs */
 .tabs-container .panel-body {
     background: #fff;
@@ -5144,50 +5142,34 @@ body.skin-3 {
 }
 
 
-
-
-/* Users */
-.users-list {
+/* Employee */
+.employees-list {
     margin-top: 20px;
-}
-.users-list .tab-pane {
     position: relative;
     height: 600px;
 }
-.users-detail {
+
+.employee-detail {
     position: relative;
     height: 620px;
 }
-.users-list table tr td {
+.employees-list table tr td {
     height: 46px;
     vertical-align: middle;
     border: none ;
 }
-.users-link {
+.employee-link {
     font-weight: 600;
     color: inherit;
 }
-.users-link:hover {
+.employee-link:hover {
     color: inherit;
 }
-.users-avatar {
+.employee-avatar {
     width: 42px;
 }
-.users-avatar img {
+.employee-avatar img {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-}
-.contact-type {
-    width: 20px;
-    color: #c1c3c4;
-}
-.users-status {
-    text-align: left;
-}
-.users-detail .vertical-timeline-content p {
-    margin: 0;
-}
-.users-detail .vertical-timeline-icon.gray-bg {
-    color: #a7aaab;
 }

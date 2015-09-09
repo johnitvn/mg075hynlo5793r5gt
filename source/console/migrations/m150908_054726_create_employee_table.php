@@ -1,41 +1,10 @@
 <?php
 
-use yii\db\Migration;
+use console\components\BaseMigration;
 
-class rbac extends Migration {
-
-    /**
-     *
-     * @var \yii\rbac\ManagerInterface
-     */
-    private $auth;
-
-    public function init() {
-        parent::init();
-        $this->auth = Yii::$app->authManager;
-    }
+class m150908_054726_create_employee_table extends BaseMigration {
 
     public function up() {
-        return true;
-    }
-
-    public function down() {
-        $this->auth->removeAll();
-        return true;
-    }
-
-}
-
-class m150813_190637_v_1_0_0 extends Migration {
-
-    public function up() {
-        $rbacMigrate = new rbac();
-        $rbacMigrate->up();
-
-        $tableOptions = null;
-        if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
-        }
         $this->createTable('employee', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull()->unique(),
@@ -43,7 +12,7 @@ class m150813_190637_v_1_0_0 extends Migration {
             'avatar' => $this->string(32),
             'fullname' => $this->string()->notNull(),
             'gender' => $this->boolean(),
-            'birthday' => $this->date(),
+            'birthday' => $this->integer()->defaultValue(NULL),
             'phone' => $this->string(16),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
@@ -51,14 +20,12 @@ class m150813_190637_v_1_0_0 extends Migration {
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-                ], $tableOptions);
+                ], $this->tableOptions);
         return true;
     }
 
     public function down() {
         $this->dropTable('employee');
-        $rbacMigrate = new rbac();
-        $rbacMigrate->down();
         return true;
     }
 

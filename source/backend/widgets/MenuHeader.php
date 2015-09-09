@@ -20,7 +20,7 @@ class MenuHeader extends Widget {
     }
 
     private function renderAvatar() {
-        $avatarImg = Html::img('/img/avatar/48.jpg', ['class' => 'img-circle']);
+        $avatarImg = Html::img('/img/default-avatar/48.jpg', ['class' => 'img-circle']);
         return Html::tag('span', $avatarImg);
     }
 

@@ -15,6 +15,13 @@ return [
             'itemChildTable' => 'employee_auth_item_child',
             'assignmentTable' => 'employee_auth_assignment',
             'ruleTable' => 'employee_auth_rule',
-        ]
+        ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+            ],
+        ],
     ],
 ];
