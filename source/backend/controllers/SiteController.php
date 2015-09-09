@@ -17,7 +17,7 @@ class SiteController extends Controller {
         if (!parent::beforeAction($action)) {
             return false;
         } else if ($action->id == "error") {
-            $this->layout = "error";
+            $this->layout = "middle_box";
         }
         return true;
     }
