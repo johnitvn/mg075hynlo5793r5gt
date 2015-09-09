@@ -13,6 +13,6 @@ $this->title = $name;
         form.
     </p>       
 </div>
-<a href="index.html" class="btn btn-primary m-t">Dashboard</a>
+<?= Html::a(Yii::t('error', 'Dashboard'), ['create'], ['class' => 'btn btn-primary m-t']) ?>
 
 
