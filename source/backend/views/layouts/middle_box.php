@@ -19,7 +19,9 @@ MainlyAsset::register($this);
     </head>
     <body class="gray-bg">
         <?php $this->beginBody() ?>
-        <?= $content ?>
+        <div class="middle-box text-center animated fadeInDown">
+            <?= $content ?>
+        </div>
         <?php $this->endBody() ?>
     </body>
 </html>
