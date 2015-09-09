@@ -2,10 +2,7 @@
 
 namespace backend\controllers;
 
-use Yii;
 use yii\web\Controller;
-use yii\base\UserException;
-use yii\web\HttpException;
 use yii\web\ErrorAction;
 
 /**
