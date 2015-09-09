@@ -24,7 +24,7 @@ MainlyAsset::register($this);
 
             <div id="page-wrapper" class="gray-bg">
                 <?= $this->render('_main_header') ?>
-                <?= $this->render('_main_content',['content'=>$content]) ?>
+                <?= $this->render('_main_content', ['content' => $content]) ?>
                 <?= $this->render('_main_footer') ?>
             </div>
         </div>

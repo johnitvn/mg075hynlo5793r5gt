@@ -17,6 +17,8 @@ $(document).ready(function () {
      */
     $("[data-toggle='tooltip']").tooltip();
     $("[data-toggle='popover']").popover();
+    // Add slimscroll to element
+    $('.full-height-scroll').slimscroll({height: '100%'})
 
     // Collapse ibox function
     $('.collapse-link:not(.binded)').addClass("binded").click(function () {

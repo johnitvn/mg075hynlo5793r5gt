@@ -12,7 +12,7 @@ class m150908_054726_create_employee_table extends BaseMigration {
             'avatar' => $this->string(32),
             'fullname' => $this->string()->notNull(),
             'gender' => $this->boolean(),
-            'birthday' => $this->date(),
+            'birthday' => $this->integer()->defaultValue(NULL),
             'phone' => $this->string(16),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),

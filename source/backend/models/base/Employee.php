@@ -57,26 +57,26 @@ class Employee extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             // username rules
-            'usernameRequired' => ['username', 'required', 'on' => ['register', 'create', 'verify', 'update']],
+            'usernameRequired' => ['username', 'required'],
             'usernameMatch' => ['username', 'match', 'pattern' => self::USERNAME_REGEXP],
             'usernameLength' => ['username', 'string', 'min' => 3, 'max' => 255],
             'usernameUnique' => ['username', 'unique', 'message' => Yii::t('employee', 'This username has already been taken')],
             'usernameTrim' => ['username', 'trim'],
             // email rules
-            'emailRequired' => ['email', 'required', 'on' => ['register', 'verify', 'create', 'update']],
+            'emailRequired' => ['email', 'required'],
             'emailPattern' => ['email', 'email'],
             'emailLength' => ['email', 'string', 'max' => 255],
             'emailUnique' => ['email', 'unique', 'message' => Yii::t('employee', 'This email address has already been taken')],
             'emailTrim' => ['email', 'trim'],
             // password rules
-            'passwordRequired' => ['password', 'required', 'on' => ['register']],
+            'passwordRequired' => ['password', 'required'],
             'passwordLength' => ['password', 'string', 'min' => 6, 'on' => ['register']],
             // password rules
-            'confirmPasswordRequired' => ['confirm_password', 'required', 'on' => ['register']],
+            'confirmPasswordRequired' => ['confirm_password', 'required'],
             'confirmPasswordLength' => ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t("employee", "Comfirm Passwords don't match")],
             // fullname rule 
-            'fullnameRequired' => ['fullname', 'required', 'on' => ['register', 'create', 'update']],
-            'fullnameLength' => ['fullname', 'string', 'max' => 255],
+            'fullnameRequired' => ['fullname', 'required'],
+            'fullnameLength' => ['fullname', 'string', 'min' => 3, 'max' => 255],
             // status rule
             'statusDefault' => ['status', 'default', 'value' => self::STATUS_ACTIVE],
             'statusRange' => ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_BLOCK, self::STATUS_DELETED]],
@@ -85,7 +85,7 @@ class Employee extends \yii\db\ActiveRecord {
             // avatar rule
             'avatarLength' => ['avatar', 'string', 'max' => 32],
             //birthday rules
-            'birtdaySafe' => ['birthday', 'safe'],
+            'birtdayDate' => ['birthday', 'date'],
             // gender rules
             'genderDefault' => ['gender', 'default', 'value' => self::FAMALE],
             'genderRange' => ['gender', 'in', 'range' => [self::MALE, self::FAMALE]],
@@ -106,6 +106,8 @@ class Employee extends \yii\db\ActiveRecord {
             'birthday' => Yii::t('employee', 'Birthday'),
             'phone' => Yii::t('employee', 'Phone'),
             'auth_key' => Yii::t('employee', 'Auth Key'),
+            'password' => Yii::t('employee', 'Password'),
+            'confirm_password' => Yii::t('employee', 'Confirm Password'),
             'password_hash' => Yii::t('employee', 'Password Hash'),
             'password_reset_token' => Yii::t('employee', 'Password Reset Token'),
             'status' => Yii::t('employee', 'Status'),
@@ -117,10 +119,8 @@ class Employee extends \yii\db\ActiveRecord {
     /** @inheritdoc */
     public function scenarios() {
         return [
-            'register' => ['username', 'email', 'password'],
-            'verify' => ['username', 'email'],
-            'create' => ['username', 'email', 'password'],
-            'update' => ['username', 'email', 'password'],
+            'create' => ['fullname', 'username', 'email', 'password', 'confirm_password'],
+            'update' => ['fullname', 'email', 'phone', 'gender', 'birthday'],
             'change_password' => ['password'],
         ];
     }
