@@ -3628,16 +3628,30 @@ body.modal-open {
     width: 15%;
 }
 /* ERROR & LOGIN & LOCKSCREEN*/
-.middle-box {
-    height: 420px;
-    width: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -210px;
-    margin-left: -300px;
-    z-index: 100;
+@media (min-width: 600px) {
+    .middle-box {
+        height: 420px;
+        width: 600px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -210px;
+        margin-left: -300px;
+        z-index: 100;
+    }
 }
+@media (max-width: 600px) {
+    .middle-box {
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0; 
+        z-index: 100;
+    }
+}
+
+
 .lockscreen.middle-box {
     width: 200px;
     margin-left: -100px;
@@ -3684,6 +3698,13 @@ body.modal-open {
 }
 .error-desc{
     font-size:16px;
+}
+.login-form{
+    text-align: left;
+}
+
+.login-form .checkbox{
+    margin:0;
 }
 /* DASBOARD */
 .dashboard-header {

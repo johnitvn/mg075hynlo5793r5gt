@@ -5,11 +5,15 @@ namespace backend\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use backend\models\LoginForm;
 
 /**
  * Sign controller
  */
 class SignController extends Controller {
+
+    public $layout = "middle_box";
 
     /**
      * @inheritdoc
@@ -25,7 +29,7 @@ class SignController extends Controller {
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [ 'logout' => ['post']],
+                'actions' => [ 'out' => ['post']],
             ],
         ];
     }
@@ -33,6 +37,15 @@ class SignController extends Controller {
     public function actionIn() {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            return $this->render('in', [
+                        'model' => $model,
+            ]);
         }
     }
 

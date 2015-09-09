@@ -34,12 +34,6 @@ class BaseModelTestCase extends TestCase {
         expect(is_array($labels))->true();
     }
 
-    public function testAttributeLabelIsFully() {
-        $model = new $this->modelClassName;
-        $labels = $model->attributeLabels();
-        expect(count($labels) === count($model->getAttributes()))->true();
-    }
-
     public function testScenariosReturn() {
         $model = new $this->modelClassName;
         $scenarios = $model->scenarios();
