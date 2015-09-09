@@ -1,10 +1,7 @@
 <?php
 
 $params = array_merge(
-        require(__DIR__ . '/../../common/config/params.php'), 
-        require(__DIR__ . '/../../common/config/params-local.php'), 
-        require(__DIR__ . '/params.php'), 
-        require(__DIR__ . '/params-local.php')
+        require(__DIR__ . '/../../common/config/params.php'), require(__DIR__ . '/../../common/config/params-local.php'), require(__DIR__ . '/params.php'), require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -21,6 +18,7 @@ return [
         'user' => [
             'identityClass' => 'backend\models\Employee',
             'enableAutoLogin' => true,
+            'loginUrl' => ['/sign/in']
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -33,7 +31,21 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
-        ],      
+        ],
+    ],
+    'as beforeRequest' => [
+        'class' => 'yii\filters\AccessControl',
+        'rules' => [
+            [
+                'actions' => ['in', 'error','toolbar'],
+                'allow' => true,
+            ],
+            [
+
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
     ],
     'params' => $params,
 ];

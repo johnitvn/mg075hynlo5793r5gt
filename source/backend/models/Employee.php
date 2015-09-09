@@ -83,4 +83,8 @@ class Employee extends BaseEmployee implements IdentityInterface {
         return true;
     }
 
+    public static function findByUsername($username) {
+        return Employee::findOne(['username' => $username]);
+    }
+
 }
