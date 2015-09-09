@@ -6,14 +6,7 @@ use backend\widgets\Menu;
     <div class="sidebar-collapse">
         <?=
         Menu::widget([
-            'items' => [
-                ['label' => 'Home', 'icon' => 'fa fa-dashboard', 'url' => ['site/index']],
-                ['label' => 'Products', 'url' => ['product/index'], 'items' => [
-                        ['label' => 'New Arrivals', 'url' => ['product/index', 'tag' => 'new']],
-                        ['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-                    ]],
-                ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-            ],
+            'items' => require Yii::getAlias('@backend/config/menus.php'),
         ]);
         ?>
     </div>
