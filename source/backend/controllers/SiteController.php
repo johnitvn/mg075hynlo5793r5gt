@@ -2,10 +2,7 @@
 
 namespace backend\controllers;
 
-use Yii;
 use yii\web\Controller;
-use yii\base\UserException;
-use yii\web\HttpException;
 use yii\web\ErrorAction;
 
 /**
@@ -17,7 +14,7 @@ class SiteController extends Controller {
         if (!parent::beforeAction($action)) {
             return false;
         } else if ($action->id == "error") {
-            $this->layout = "error";
+            $this->layout = "middle_box";
         }
         return true;
     }
