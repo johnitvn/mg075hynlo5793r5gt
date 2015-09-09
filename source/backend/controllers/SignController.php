@@ -14,7 +14,8 @@ class SignController extends Controller {
     }
 
     public function actionOut() {
-        
+        Yii::$app->user->logout();
+        return $this->goHome();
     }
 
 }
