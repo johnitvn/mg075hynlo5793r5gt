@@ -1,0 +1,43 @@
+<?php
+
+return [
+    [
+        'fullname' => 'Everett McGlynn',
+        'username' => 'demo0',
+        'status' => 10,
+        'gender' => 0,
+        'email' => 'lgerhold@hotmail.com',
+        'phone' => '8dec40a01ec4',
+        'auth_key' => 'Souk_Z3cFZarQMHYCcITziY7dAsfUxej',
+        'password_hash' => '$2y$13$YD/gZfWHz0FNPCFFk5eXmevAs1V5LadSrxmepkW61pgU3Y1vrgDvS',
+        'password_reset_token' => '55MjOCZpwlrDHGdpG9HFFa-KXCTDOiTI_1441816821',
+        'created_at' => 1441816821,
+        'updated_at' => 1441816821,
+    ],
+    [
+        'fullname' => 'Connor Robel',
+        'username' => 'demo1',
+        'status' => 5,
+        'gender' => 1,
+        'email' => 'bogisich.zakary@tromp.com',
+        'phone' => 'ed507e5f05ce',
+        'auth_key' => 'gZYhOoL4pClkl5ionPK2pBbKAnrdi2gX',
+        'password_hash' => '$2y$13$kQOyHEl7vr6rq/mCpi4N9OtTdZu6Tjd5NFV1o/Ec8KLMADuH4Rm3O',
+        'password_reset_token' => 'LP--hzj7LGF8jFjt9MbkVLY7IymrWJLY_1441816821',
+        'created_at' => 1441816821,
+        'updated_at' => 1441816821,
+    ],
+    [
+        'fullname' => 'Aditya Wilderman',
+        'username' => 'demo2',
+        'status' => 0,
+        'gender' => 0,
+        'email' => 'ursula56@gislason.org',
+        'phone' => '7a985c0c63ed',
+        'auth_key' => 'I0I5WrdzMynWJ8-l1iQQS-O2nqK-ZbZT',
+        'password_hash' => '$2y$13$lX.PikC9vOdEw0egbJws9.MCbgHT4bVPpTZW7uBxUQR2VIf3RhQy2',
+        'password_reset_token' => 'R8KgnGdnNFZBXOteJnilp_EIZt6V6UwG_1441816822',
+        'created_at' => 1441816822,
+        'updated_at' => 1441816822,
+    ],
+];

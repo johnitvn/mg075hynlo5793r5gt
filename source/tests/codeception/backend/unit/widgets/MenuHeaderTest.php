@@ -23,7 +23,7 @@ class MenuHeaderTest extends TestCase {
         $expect = <<<HTML
 <div class="dropdown profile-element">
 <span>
-<img class="img-circle" src="/img/avatar/48.jpg" alt="">
+<img class="img-circle" src="/img/default-avatar/48.jpg" alt="">
 </span>
 <a class="dropdown-toggle" href="#" data-toggle="dropdown">
 <span class="clear">
@@ -47,7 +47,7 @@ HTML;
         $expect = <<<HTML
 <div class="dropdown profile-element">
 <span>
-<img class="img-circle" src="/img/avatar/48.jpg" alt="">
+<img class="img-circle" src="/img/default-avatar/48.jpg" alt="">
 </span>
 <a class="dropdown-toggle" href="#" data-toggle="dropdown">
 <span class="clear">
