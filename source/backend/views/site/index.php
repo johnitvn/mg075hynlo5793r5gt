@@ -1,6 +1,7 @@
 <?php
 $token = Yii::$app->get("google-client")->getClient()->getAccessToken();
 $accessToken = json_decode($token)->access_token;
+$viewId = Yii::$app->get("google-analytics")->viewId;
 
 $googleAnalyticsJs = <<<JS
 (function(w,d,s,g,js,fs){
@@ -13,10 +14,10 @@ gapi.analytics.ready(function () {
         gapi.analytics.auth.authorize({serverAuth:{access_token: '$accessToken'}});
         new gapi.analytics.googleCharts.DataChart({
             query: {
-                'ids': 'ga:95454412',
+                'ids': 'ga:$viewId',
                 'start-date': '30daysAgo',
                 'end-date': 'yesterday',
-                'metrics': 'ga:users,ga:pageviews',
+                'metrics': 'ga:sessions,ga:percentNewSessions',
                 'dimensions': 'ga:date'
             },
             chart: {

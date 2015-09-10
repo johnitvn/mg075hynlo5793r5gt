@@ -44,6 +44,7 @@ return [
         ],
         'google-analytics' => [
             'class' => 'backend\components\GoogleAnalyticsService',
+            'viewId' => '95454412'
         ]
     ],
     'as beforeRequest' => [
