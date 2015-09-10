@@ -3,4 +3,5 @@
 return [
     ['label' => Yii::t('home', 'Home'), 'icon' => 'fa fa-home', 'url' => ['site/index']],
     ['label' => 'Employee', 'icon' => 'fa fa-users', 'url' => ['employee/index']],
+    ['label' => 'Film Category', 'icon' => 'fa fa-tree', 'url' => ['film-category/index']],
 ];
