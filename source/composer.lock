@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "16d9aae6c63ad9d50b226c558893ab3a",
+    "hash": "418b60e0e74df506048a665d77516b16",
     "packages": [
         {
             "name": "bower-asset/animate.css",
@@ -1024,6 +1024,49 @@
                 "sdk"
             ],
             "time": "2015-08-06 18:33:24"
+        },
+        {
+            "name": "google/apiclient",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/google-api-php-client.git",
+                "reference": "066668986ea099d406098ba0bb2a61cc51f5a0de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/066668986ea099d406098ba0bb2a61cc51f5a0de",
+                "reference": "066668986ea099d406098ba0bb2a61cc51f5a0de",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Client library for Google APIs",
+            "homepage": "http://developers.google.com/api-client-library/php",
+            "keywords": [
+                "google"
+            ],
+            "time": "2015-08-20 18:54:11"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -2290,12 +2333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "91a0e782e090ba5f7af808566e64a1107f74381a"
+                "reference": "fd315d2f1f2b741760f8a5f1cb0dfb732eb8bd57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/91a0e782e090ba5f7af808566e64a1107f74381a",
-                "reference": "91a0e782e090ba5f7af808566e64a1107f74381a",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/fd315d2f1f2b741760f8a5f1cb0dfb732eb8bd57",
+                "reference": "fd315d2f1f2b741760f8a5f1cb0dfb732eb8bd57",
                 "shasum": ""
             },
             "require": {
@@ -2371,7 +2414,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-09-07 21:37:06"
+            "time": "2015-09-08 12:25:56"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -2701,12 +2744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "7f842c2dbcbb9d7395a656ad68039a654047f907"
+                "reference": "4d1acafbfc49d0d4dcce327971fd69fdec5df7a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7f842c2dbcbb9d7395a656ad68039a654047f907",
-                "reference": "7f842c2dbcbb9d7395a656ad68039a654047f907",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4d1acafbfc49d0d4dcce327971fd69fdec5df7a4",
+                "reference": "4d1acafbfc49d0d4dcce327971fd69fdec5df7a4",
                 "shasum": ""
             },
             "require": {
@@ -2743,7 +2786,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-09-02 08:31:45"
+            "time": "2015-09-08 07:07:45"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3133,12 +3176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "825bdc1afcccdc88c2d641343f8df4fc5afe214d"
+                "reference": "7d21eb99840db0b0ce80221a260a299caa50e4f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/825bdc1afcccdc88c2d641343f8df4fc5afe214d",
-                "reference": "825bdc1afcccdc88c2d641343f8df4fc5afe214d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7d21eb99840db0b0ce80221a260a299caa50e4f4",
+                "reference": "7d21eb99840db0b0ce80221a260a299caa50e4f4",
                 "shasum": ""
             },
             "require": {
@@ -3186,7 +3229,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-09-06 06:45:56"
+            "time": "2015-09-09 05:33:05"
         },
         {
             "name": "yiisoft/yii2-apidoc",
