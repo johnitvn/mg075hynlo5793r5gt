@@ -4,6 +4,7 @@ namespace console\controllers;
 
 use yii\console\Controller;
 use backend\models\Employee;
+use backend\models\FilmCategory;
 
 /**
  * Manager Employee
@@ -38,7 +39,7 @@ class DevController extends Controller {
     }
 
     private function seedUser() {
-        for ($i = 1; $i < 100; $i++) {
+        for ($i = 1; $i < 20; $i++) {
             $employee = new Employee([
                 'scenario' => 'create',
                 'fullname' => $this->faker->name,
@@ -47,6 +48,18 @@ class DevController extends Controller {
                 'phone' => substr($this->faker->hexColor, 1) . substr($this->faker->hexColor, 1),
                 'password' => 'demo' . $i,
                 'confirm_password' => 'demo' . $i,
+                'created_at' => time(),
+                'updated_at' => time(),
+            ]);
+            $employee->save();
+        }
+
+        for ($i = 1; $i < 30; $i++) {
+            $employee = new FilmCategory([
+                'name' => $this->faker->name,
+                'description' => $this->faker->address,
+                'created_at' => time(),
+                'updated_at' => time(),
             ]);
             $employee->save();
         }
