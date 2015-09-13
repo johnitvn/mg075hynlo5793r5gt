@@ -34,7 +34,7 @@ class FilmActor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
+            [['name'], 'required'],
             [['birthday', 'country', 'created_at', 'updated_at'], 'integer'],
             [['profile'], 'string'],
             [['name'], 'string', 'max' => 255],
