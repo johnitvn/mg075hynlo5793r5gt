@@ -39,7 +39,7 @@ function urlCreator($action, $model, $key, $index) {
         <div class="panel-body">
             <form>
                 <div class="input-group">
-                    <input type="text" placeholder="Search actor" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
+                    <input type="text" placeholder="Search country" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> Search</button>
                     </span>
