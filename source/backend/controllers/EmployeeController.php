@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use backend\models\Employee;
-use backend\models\EmployeeSearch;
+use backend\models\search\EmployeeSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;

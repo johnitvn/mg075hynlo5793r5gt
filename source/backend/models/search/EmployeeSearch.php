@@ -1,8 +1,9 @@
 <?php
 
-namespace backend\models;
+namespace backend\models\search;
 
 use yii\data\ActiveDataProvider;
+use backend\models\Employee;
 
 /**
  * EmployeeSearch represents the model behind the search form about `backend\models\Employee`.

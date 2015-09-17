@@ -9,7 +9,7 @@ use yii\widgets\LinkPager;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var backend\models\EmployeeSearch $searchModel
+ * @var backend\models\search\EmployeeSearch $searchModel
  */
 $this->title = Yii::t('employee', 'Employees List');
 $this->params['breadcrumbs'][] = $this->title;
