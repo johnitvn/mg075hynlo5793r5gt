@@ -8,8 +8,8 @@ class m150913_141044_create_table_country extends BaseMigration {
         $this->createTable('country', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
                 ], $this->tableOptions);
         return true;
     }

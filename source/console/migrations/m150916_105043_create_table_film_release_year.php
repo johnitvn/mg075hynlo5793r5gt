@@ -8,8 +8,8 @@ class m150916_105043_create_table_film_release_year extends BaseMigration {
         $this->createTable('film_release_year', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
                 ], $this->tableOptions);
         return true;
     }

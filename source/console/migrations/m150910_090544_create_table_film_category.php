@@ -9,8 +9,8 @@ class m150910_090544_create_table_film_category extends BaseMigration {
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
             'description' => $this->string(255),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
                 ], $this->tableOptions);
         return true;
     }
