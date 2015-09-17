@@ -10,6 +10,7 @@
         "kartik-v/yii2-widgets": "*",
         "schmunk42/yii2-giiant": "*",
         "dmstr/yii2-migrate-command": "*",
+        "ijackua/yii2-lepture-markdown-editor-widget": "1.0.0",
         "bower-asset/PACE": "1.0.2",
         "bower-asset/slimScroll": "1.3.6",
         "bower-asset/metisMenu": "2.1.0",

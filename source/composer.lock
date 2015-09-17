@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "418b60e0e74df506048a665d77516b16",
+    "hash": "d11fc250d219401d7f437c1d2b284ddf",
+    "content-hash": "536e6691fedfbc880deaa3858914a26c",
     "packages": [
         {
             "name": "bower-asset/animate.css",
@@ -1031,12 +1032,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "066668986ea099d406098ba0bb2a61cc51f5a0de"
+                "reference": "188e47442381b671184d36d60d7cb4bc0b71d8df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/066668986ea099d406098ba0bb2a61cc51f5a0de",
-                "reference": "066668986ea099d406098ba0bb2a61cc51f5a0de",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/188e47442381b671184d36d60d7cb4bc0b71d8df",
+                "reference": "188e47442381b671184d36d60d7cb4bc0b71d8df",
                 "shasum": ""
             },
             "require": {
@@ -1066,7 +1067,53 @@
             "keywords": [
                 "google"
             ],
-            "time": "2015-08-20 18:54:11"
+            "time": "2015-09-10 17:05:21"
+        },
+        {
+            "name": "ijackua/yii2-lepture-markdown-editor-widget",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iJackUA/yii2-lepture-markdown-editor-widget.git",
+                "reference": "c270e33f6df4b50ab493ee14fb40403e024fb522"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iJackUA/yii2-lepture-markdown-editor-widget/zipball/c270e33f6df4b50ab493ee14fb40403e024fb522",
+                "reference": "c270e33f6df4b50ab493ee14fb40403e024fb522",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "ijackua\\lepture\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Kuzminov",
+                    "email": "kyzminov@gmail.com",
+                    "homepage": "http://stdout.in"
+                }
+            ],
+            "description": "Yii2 widget for Lepture Markdown Editor (https://github.com/lepture/editor) - A markdown editor you really want",
+            "homepage": "https://github.com/iJackUA/yii2-lepture-markdown-editor-widget",
+            "keywords": [
+                "editor",
+                "extension",
+                "lepture",
+                "markdown",
+                "widget",
+                "yii"
+            ],
+            "time": "2014-03-29 19:06:57"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -1074,12 +1121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "da3575c818d4e3636d22a90733ce25a6a8522eb0"
+                "reference": "883d8b623579d6ec2ec4ca28b6b8cc51ececd9ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/da3575c818d4e3636d22a90733ce25a6a8522eb0",
-                "reference": "da3575c818d4e3636d22a90733ce25a6a8522eb0",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/883d8b623579d6ec2ec4ca28b6b8cc51ececd9ac",
+                "reference": "883d8b623579d6ec2ec4ca28b6b8cc51ececd9ac",
                 "shasum": ""
             },
             "type": "library",
@@ -1114,7 +1161,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2015-09-07 20:03:00"
+            "time": "2015-09-14 15:42:34"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -1122,12 +1169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
-                "reference": "8d14b538ba6d3e5eaa160fbb203420e91cc779a8"
+                "reference": "45488aa84a2c1589bcd644b96de877668af9a54a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/8d14b538ba6d3e5eaa160fbb203420e91cc779a8",
-                "reference": "8d14b538ba6d3e5eaa160fbb203420e91cc779a8",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/45488aa84a2c1589bcd644b96de877668af9a54a",
+                "reference": "45488aa84a2c1589bcd644b96de877668af9a54a",
                 "shasum": ""
             },
             "type": "library",
@@ -1155,7 +1202,7 @@
                 "jquery",
                 "star"
             ],
-            "time": "2015-08-12 13:49:36"
+            "time": "2015-09-14 15:43:47"
         },
         {
             "name": "kartik-v/dependent-dropdown",
@@ -2230,12 +2277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmunk42/yii2-giiant.git",
-                "reference": "35f91f058b629c119dd8524d88d9a78e6e9ac174"
+                "reference": "fbb00f518f25175880b90db5193a35cb676482f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmunk42/yii2-giiant/zipball/35f91f058b629c119dd8524d88d9a78e6e9ac174",
-                "reference": "35f91f058b629c119dd8524d88d9a78e6e9ac174",
+                "url": "https://api.github.com/repos/schmunk42/yii2-giiant/zipball/fbb00f518f25175880b90db5193a35cb676482f1",
+                "reference": "fbb00f518f25175880b90db5193a35cb676482f1",
                 "shasum": ""
             },
             "require": {
@@ -2272,7 +2319,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2015-09-02 01:44:05"
+            "time": "2015-09-10 13:00:48"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2333,12 +2380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "fd315d2f1f2b741760f8a5f1cb0dfb732eb8bd57"
+                "reference": "42749cbc9e36cbdd4b7659a0055f15598619decb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/fd315d2f1f2b741760f8a5f1cb0dfb732eb8bd57",
-                "reference": "fd315d2f1f2b741760f8a5f1cb0dfb732eb8bd57",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/42749cbc9e36cbdd4b7659a0055f15598619decb",
+                "reference": "42749cbc9e36cbdd4b7659a0055f15598619decb",
                 "shasum": ""
             },
             "require": {
@@ -2414,7 +2461,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-09-08 12:25:56"
+            "time": "2015-09-13 23:12:35"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -2744,12 +2791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "4d1acafbfc49d0d4dcce327971fd69fdec5df7a4"
+                "reference": "46a25cb87fe630550e99b2a26d6fa7cce3b4143d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4d1acafbfc49d0d4dcce327971fd69fdec5df7a4",
-                "reference": "4d1acafbfc49d0d4dcce327971fd69fdec5df7a4",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/46a25cb87fe630550e99b2a26d6fa7cce3b4143d",
+                "reference": "46a25cb87fe630550e99b2a26d6fa7cce3b4143d",
                 "shasum": ""
             },
             "require": {
@@ -2786,7 +2833,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-09-08 07:07:45"
+            "time": "2015-09-16 06:57:55"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3176,12 +3223,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "7d21eb99840db0b0ce80221a260a299caa50e4f4"
+                "reference": "9fde02fe552256722466c9985520b6f50c9c759b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7d21eb99840db0b0ce80221a260a299caa50e4f4",
-                "reference": "7d21eb99840db0b0ce80221a260a299caa50e4f4",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9fde02fe552256722466c9985520b6f50c9c759b",
+                "reference": "9fde02fe552256722466c9985520b6f50c9c759b",
                 "shasum": ""
             },
             "require": {
@@ -3194,7 +3241,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.21-dev"
+                    "dev-master": "1.22-dev"
                 }
             },
             "autoload": {
@@ -3229,7 +3276,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-09-09 05:33:05"
+            "time": "2015-09-16 08:32:19"
         },
         {
             "name": "yiisoft/yii2-apidoc",

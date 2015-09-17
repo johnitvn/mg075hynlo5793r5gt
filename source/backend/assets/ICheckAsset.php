@@ -6,12 +6,12 @@ use common\components\AssetBundleExt;
 
 class ICheckAsset extends AssetBundleExt {
 
-    public $sourcePath = "@vendor/bower/metisMenu/dist";
+    public $sourcePath = "@vendor/bower/icheck";
     public $css = [
-        'metisMenu',
+        'skins/flat/blue',
     ];
     public $js = [
-        'metisMenu',
+        'icheck',
     ];
     public $depends = [
         'yii\web\YiiAsset',

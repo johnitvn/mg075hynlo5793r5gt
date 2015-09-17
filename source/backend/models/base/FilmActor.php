@@ -10,32 +10,28 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property integer $birthday
- * @property integer $country
+ * @property integer $country_id
+ * @property \backend\models\Country $country
  * @property string $profile
  * @property integer $created_at
  * @property integer $updated_at
  */
-class FilmActor extends \yii\db\ActiveRecord
-{
-
-
+class FilmActor extends \yii\db\ActiveRecord {
 
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'film_actor';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
-            [['birthday', 'country', 'created_at', 'updated_at'], 'integer'],
+            [['name'], 'required'],
+            [['birthday', 'country_id', 'created_at', 'updated_at'], 'integer'],
             [['profile'], 'string'],
             [['name'], 'string', 'max' => 255],
             [['name'], 'unique']
@@ -45,20 +41,16 @@ class FilmActor extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => Yii::t('employee', 'ID'),
             'name' => Yii::t('employee', 'Name'),
             'birthday' => Yii::t('employee', 'Birthday'),
-            'country' => Yii::t('employee', 'Country'),
+            'country_id' => Yii::t('employee', 'Country'),
             'profile' => Yii::t('employee', 'Profile'),
             'created_at' => Yii::t('employee', 'Created At'),
             'updated_at' => Yii::t('employee', 'Updated At'),
         ];
     }
-
-
-
 
 }

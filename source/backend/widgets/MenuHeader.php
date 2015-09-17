@@ -2,6 +2,7 @@
 
 namespace backend\widgets;
 
+use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -38,9 +39,8 @@ class MenuHeader extends Widget {
     }
 
     private function renderUserInfo() {
-        $username = Html::tag('span', '<strong class="font-bold">' . 'Demo User' . '</strong>', ['class' => 'block m-t-xs']);
-        $department = Html::tag('span', 'Art Director <b class="caret"></b>', ['class' => 'text-muted text-xs block']);
-        return Html::tag('span', $username . $department, ['class' => 'clear']);
+        $username = Html::tag('span', '<strong class="font-bold">' . Yii::$app->getUser()->getIdentity()->fullname . '</strong><b class="caret"></b>', ['class' => 'block m-t-xs']);
+        return Html::tag('span', $username, ['class' => 'clear']);
     }
 
 }
