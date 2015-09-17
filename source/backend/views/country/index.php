@@ -8,7 +8,7 @@ use yii\widgets\Breadcrumbs;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var backend\models\CountrySearch $searchModel
+ * @var backend\models\search\CountrySearch $searchModel
  */
 $this->title = Yii::t('app', 'Countries');
 $this->params['breadcrumbs'][] = $this->title;

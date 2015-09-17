@@ -3,11 +3,10 @@
 namespace backend\controllers;
 
 use backend\models\Country;
-use backend\models\CountrySearch;
+use backend\models\search\CountrySearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
-use dmstr\bootstrap\Tabs;
 
 /**
  * CountryController implements the CRUD actions for Country model.

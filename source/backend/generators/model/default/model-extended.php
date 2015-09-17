@@ -17,7 +17,6 @@ echo "<?php\n";
 
 namespace <?= $generator->ns ?>;
 
-use Yii;
 use \<?= $generator->ns ?>\base\Base<?= $className ?>;
 
 /**

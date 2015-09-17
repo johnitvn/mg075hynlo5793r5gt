@@ -1,8 +1,9 @@
 <?php
 
-namespace backend\models;
+namespace backend\models\search;
 
 use yii\data\ActiveDataProvider;
+use backend\models\Country;
 
 /**
  * CountrySearch represents the model behind the search form about `\backend\models\Country`.
