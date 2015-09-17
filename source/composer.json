@@ -2,12 +2,11 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": ">=2.0.6",
+        "yiisoft/yii2": "2.0.6",
         "yiisoft/yii2-jui": "~2.0.0",
         "facebook/php-sdk-v4": "~5.0",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "kartik-v/yii2-widgets": "*",
         "schmunk42/yii2-giiant": "*",
         "dmstr/yii2-migrate-command": "*",
         "ijackua/yii2-lepture-markdown-editor-widget": "1.0.0",
@@ -22,11 +21,9 @@
         "bower-asset/chosen": "1.4.2",
         "bower-asset/animate.css": "*",
         "bower-asset/font-awesome": "*",
-        "kartik-v/yii2-datecontrol": "@dev",
         "google/apiclient": "*"
     },
     "require-dev": {
-        "yiisoft/yii2-apidoc": "2.0.4",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*",

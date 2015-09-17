@@ -6,7 +6,7 @@ use common\components\AssetBundleExt;
 
 class AppAsset extends AssetBundleExt {
 
-    public $basePath = "@webroot";
+    public $sourcePath = "@backend/resources";
     public $baseUrl = "@web";
     public $css = [
         'css/style'
