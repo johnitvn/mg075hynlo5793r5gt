@@ -8,7 +8,7 @@ use yii\widgets\Breadcrumbs;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var backend\models\FilmCategorySearch $searchModel
+ * @var backend\models\search\FilmCategorySearch $searchModel
  */
 $this->title = Yii::t('app', 'Film Categories');
 $this->params['breadcrumbs'][] = $this->title;

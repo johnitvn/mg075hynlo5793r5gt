@@ -3,11 +3,10 @@
 namespace backend\controllers;
 
 use backend\models\FilmCategory;
-use backend\models\FilmCategorySearch;
+use backend\models\search\FilmCategorySearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
-use dmstr\bootstrap\Tabs;
 
 /**
  * FilmCategoryController implements the CRUD actions for FilmCategory model.
@@ -18,7 +17,7 @@ class FilmCategoryController extends Controller {
      * @var boolean whether to enable CSRF validation for the actions in this controller.
      * CSRF validation is enabled only when both this property and [[Request::enableCsrfValidation]] are true.
      */
-    public $enableCsrfValidation = false;
+    public $enableCsrfValidation = true;
 
     /**
      * Lists all FilmCategory models.
@@ -26,10 +25,7 @@ class FilmCategoryController extends Controller {
      */
     public function actionIndex() {
         $searchModel = new FilmCategorySearch;
-        $dataProvider = $searchModel->search($_GET);
-
-        Tabs::clearLocalStorage();
-
+        $dataProvider = $searchModel->search(isset($_GET['q']) ? $_GET['q'] : null);
         Url::remember();
         \Yii::$app->session['__crudReturnUrl'] = null;
 
@@ -48,8 +44,6 @@ class FilmCategoryController extends Controller {
     public function actionView($id) {
         \Yii::$app->session['__crudReturnUrl'] = Url::previous();
         Url::remember();
-        Tabs::rememberActiveState();
-
         return $this->render('view', [
                     'model' => $this->findModel($id),
         ]);
