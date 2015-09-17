@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\widgets\Breadcrumbs;
+use backend\models\Country;
 
 /**
  * @var yii\web\View $this
@@ -18,6 +19,14 @@ function urlCreator($action, $model, $key, $index) {
     $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
     $params[0] = \Yii::$app->controller->id ? \Yii::$app->controller->id . '/' . $action : $action;
     return Url::toRoute($params);
+}
+
+function getCountryNameById($model) {
+    if ($model->country == null) {
+        return "Updatting";
+    } else {
+        return Country::findOne(['id' => $model->country])->name;
+    }
 }
 ?>
 
@@ -57,8 +66,19 @@ function urlCreator($action, $model, $key, $index) {
                     'tableOptions' => ['class' => 'table table-striped table-hover'],
                     'columns' => [
                         'name',
-                        'birthday',
-                        'country',
+                        [
+                            'attribute' => 'birthday',
+                            'value' => function($model) {
+                                return $model->birthday === null ? "Updating" : $model->birthday;
+                            },
+                        ],
+                        [
+                            'attribute' => 'country',
+                            'value' => function($model) {
+                                $country = $model->country;
+                                return $country === null ? "Updating" : $country->name;
+                            },
+                        ],
                         [
                             'class' => 'yii\grid\ActionColumn',
                             'urlCreator' => 'urlCreator',
