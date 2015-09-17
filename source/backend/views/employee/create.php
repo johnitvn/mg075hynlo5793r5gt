@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
  * @var yii\web\View $this
  * @var backend\models\Employee $model
  */
-$this->title = Yii::t('employee', 'Create');
+$this->title = Yii::t('app', 'Create');
 $this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="col-sm-4">
         <div class="title-action">
-            <?= Html::a(Yii::t('employee', 'Back'), \yii\helpers\Url::previous(), ['class' => 'btn btn-primary']) ?>
+            <?= Html::a(Yii::t('app', 'Back'), \yii\helpers\Url::previous(), ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
     <?php $this->endBlock() ?>
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?=
                             Html::submitButton(
                                     '<span class="glyphicon glyphicon-check"></span> ' .
-                                    ($model->isNewRecord ? Yii::t('employee', 'Create') : Yii::t('employee', 'Save')), [
+                                    ($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')), [
                                 'id' => 'save-' . $model->formName(),
                                 'class' => 'btn btn-success'
                                     ]

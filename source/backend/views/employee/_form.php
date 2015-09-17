@@ -35,7 +35,7 @@ use \dmstr\bootstrap\Tabs;
                         <?=
                         Html::submitButton(
                                 '<span class="glyphicon glyphicon-check"></span> ' .
-                                ($model->isNewRecord ? Yii::t('employee', 'Create') : Yii::t('employee', 'Save')), [
+                                ($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')), [
                             'id' => 'save-' . $model->formName(),
                             'class' => 'btn btn-success'
                                 ]

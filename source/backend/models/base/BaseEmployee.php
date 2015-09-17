@@ -2,9 +2,8 @@
 
 namespace backend\models\base;
 
-
+use Yii;
 use yii\behaviors\TimestampBehavior;
-
 
 /**
  * This is the model class for table "employee".
@@ -24,21 +23,19 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class BaseEmployee extends \yii\db\ActiveRecord
-{
+class BaseEmployee extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'employee';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['username', 'email', 'fullname', 'auth_key', 'password_hash'], 'required'],
             [['gender', 'birthday', 'status', 'created_at', 'updated_at'], 'integer'],
@@ -54,33 +51,32 @@ class BaseEmployee extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'avatar' => 'Avatar',
-            'fullname' => 'Fullname',
-            'gender' => 'Gender',
-            'birthday' => 'Birthday',
-            'phone' => 'Phone',
-            'auth_key' => 'Auth Key',
-            'password_hash' => 'Password Hash',
-            'password_reset_token' => 'Password Reset Token',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'id' => Yii::t('app', 'ID'),
+            'username' => Yii::t('app', 'Username'),
+            'email' => Yii::t('app', 'Email'),
+            'avatar' => Yii::t('app', 'Avatar'),
+            'fullname' => Yii::t('app', 'Fullname'),
+            'gender' => Yii::t('app', 'Gender'),
+            'birthday' => Yii::t('app', 'Birthday'),
+            'phone' => Yii::t('app', 'Phone'),
+            'auth_key' => Yii::t('app', 'Auth Key'),
+            'password_hash' => Yii::t('app', 'Password Hash'),
+            'password_reset_token' => Yii::t('app', 'Password Reset Token'),
+            'status' => Yii::t('app', 'Status'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
-    
+
     /**
      * @inheritdoc
      */
     public function behaviors() {
         return [
-            TimestampBehavior::className(),            
+            TimestampBehavior::className(),
         ];
     }
-    
+
 }

@@ -40,20 +40,20 @@ class Employee extends BaseEmployee implements IdentityInterface {
             'usernameRequired' => ['username', 'required'],
             'usernameMatch' => ['username', 'match', 'pattern' => self::USERNAME_REGEXP],
             'usernameLength' => ['username', 'string', 'min' => 3, 'max' => 255],
-            'usernameUnique' => ['username', 'unique', 'message' => Yii::t('employee', 'This username has already been taken')],
+            'usernameUnique' => ['username', 'unique', 'message' => Yii::t('app', 'This username has already been taken')],
             'usernameTrim' => ['username', 'trim'],
             // email rules
             'emailRequired' => ['email', 'required'],
             'emailPattern' => ['email', 'email'],
             'emailLength' => ['email', 'string', 'max' => 255],
-            'emailUnique' => ['email', 'unique', 'message' => Yii::t('employee', 'This email address has already been taken')],
+            'emailUnique' => ['email', 'unique', 'message' => Yii::t('app', 'This email address has already been taken')],
             'emailTrim' => ['email', 'trim'],
             // password rules
             'passwordRequired' => ['password', 'required'],
             'passwordLength' => ['password', 'string', 'min' => 6, 'on' => ['register']],
             // password rules
             'confirmPasswordRequired' => ['confirm_password', 'required'],
-            'confirmPasswordLength' => ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t("employee", "Comfirm Passwords don't match")],
+            'confirmPasswordLength' => ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t("app", "Comfirm Passwords don't match")],
             // fullname rule 
             'fullnameRequired' => ['fullname', 'required'],
             'fullnameLength' => ['fullname', 'string', 'min' => 3, 'max' => 255],
@@ -79,6 +79,16 @@ class Employee extends BaseEmployee implements IdentityInterface {
             'update' => ['fullname', 'email', 'phone', 'gender', 'birthday'],
             'change_password' => ['password'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels() {
+        return array_merge(parent::attributeLabels(), [
+            'password' => Yii::t('app', 'Password'),
+            'confirm_password' => Yii::t('app', 'Confirm Password'),
+        ]);
     }
 
     /**

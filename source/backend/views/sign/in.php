@@ -3,11 +3,13 @@
 use yii\bootstrap\ActiveForm;
 
 $this->registerJs('setTimeout(function(){$(".col-sm-12").attr("class","col-sm-6 b-r");$(".col-sm-6.hidden").removeClass("hidden")},1000);' .
-        'setTimeout(function(){$("img").attr("src",$("img").attr("data-src")).attr("class","animated fadeIn")},1100)');
+        'setTimeout(function(){$("img.firewall-dectected").attr("src",$("img.firewall-dectected").attr("data-src")).attr("class","animated fadeIn")},1100)');
 ?>
+
+
 <div class="ibox float-e-margins">
-    <div class="ibox-title">
-        <h3><?= Yii::t("sign", "Sign In To Backend System") ?></h3>        
+    <div class="ibox-title" style="height: 90px">
+        <img style="height: 60px" src="/img/logo.png" />              
     </div>
     <div class="ibox-content">
         <div class="row">
@@ -24,7 +26,7 @@ $this->registerJs('setTimeout(function(){$(".col-sm-12").attr("class","col-sm-6 
                 <?php ActiveForm::end(); ?>
             </div>   
             <div class="col-sm-6 hidden">
-                <img style="width:80px" data-src="/img/signin/bad-bots.png">
+                <img class="firewall-dectected" style="width:80px" data-src="/img/signin/bad-bots.png">
                 <div class="m-t">
                     Your IP address is not in the white list. We've saved your IP address. If you are not yota's staff then you can be sued because  try to login illegal
                 </div>

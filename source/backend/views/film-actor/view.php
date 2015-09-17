@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'View');
         <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('app', 'New'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <p class="pull-right">
-        <?= Html::a('<span class="glyphicon glyphicon-list"></span> ' . Yii::t('app', 'List FilmActors'), ['index'], ['class'=>'btn btn-default']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-list"></span> ' . Yii::t('app', 'Back'), ['index'], ['class'=>'btn btn-default']) ?>
     </p>
 
     <div class="clearfix"></div>

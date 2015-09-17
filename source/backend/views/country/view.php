@@ -1,11 +1,7 @@
 <?php
 
 use dmstr\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\GridView;
 use yii\widgets\DetailView;
-use yii\widgets\Pjax;
-use dmstr\bootstrap\Tabs;
 use yii\widgets\Breadcrumbs;
 
 /**
@@ -26,7 +22,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'View');
 <div class="col-sm-4">
     <div class="title-action">
         <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> ' . Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('<span class="glyphicon glyphicon-list"></span> ' . Yii::t('app', 'List Countries'), ['index'], ['class' => 'btn btn-default']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-list"></span> ' . Yii::t('app', 'Back'), ['index'], ['class' => 'btn btn-default']) ?>
     </div>
 </div>
 <?php $this->endBlock() ?>

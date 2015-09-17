@@ -27,7 +27,7 @@ function urlCreator($action, $model, $key, $index) {
 </div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('film_category', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
 <?php $this->endBlock() ?>
@@ -61,6 +61,7 @@ function urlCreator($action, $model, $key, $index) {
                     ],
                     'tableOptions' => ['class' => 'table table-striped table-hover'],
                     'columns' => [
+                        'id',
                         'name',
                         'description',
                         [

@@ -57,6 +57,7 @@ function urlCreator($action, $model, $key, $index) {
                     'tableOptions' => ['class' => 'table table-striped table-hover'],
                     'headerRowOptions' => ['class' => 'x'],
                     'columns' => [
+                        'id',
                         'name',
                         [
                             'class' => 'yii\grid\ActionColumn',

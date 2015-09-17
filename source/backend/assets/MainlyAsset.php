@@ -21,7 +21,7 @@ class MainlyAsset extends AssetBundleExt {
         'backend\assets\MetisMenuAsset',
         'backend\assets\SlimScrollAsset',
         'backend\assets\AnimateAsset',
-        //'backend\assets\PaceAsset',
+        'backend\assets\PaceAsset',
         'backend\assets\FontAwesomeAsset',
     ];
 

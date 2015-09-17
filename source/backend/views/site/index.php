@@ -3,6 +3,8 @@ $token = Yii::$app->get("google-client")->getClient()->getAccessToken();
 $accessToken = json_decode($token)->access_token;
 $viewId = Yii::$app->get("google-analytics")->viewId;
 
+$this->title = Yii::t('app', 'Home');
+
 $googleAnalyticsJs = <<<JS
 (function(w,d,s,g,js,fs){
   g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
@@ -37,8 +39,8 @@ $this->registerJs($googleAnalyticsJs);
     <div class="col-lg-8">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <span class="label label-success  pull-right"><?= Yii::t("dashboard", "Monthly") ?></span>
-                <h5><?= Yii::t("dashboard", "Traffic Overview") ?>&nbsp;<small><?= Yii::t("dashboard", "Data provided by") ?>&nbsp;<a href="https://www.google.com/analytics">Google Analytis</a></small></h5>      
+                <span class="label label-success  pull-right"><?= Yii::t("app", "Monthly") ?></span>
+                <h5><?= Yii::t("app", "Traffic Overview") ?>&nbsp;<small><?= Yii::t("app", "Data provided by") ?>&nbsp;<a href="https://www.google.com/analytics">Google Analytis</a></small></h5>      
             </div>
             <div class="ibox-content">
                 <div id="overview-chart"></div>

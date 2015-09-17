@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
  * @var yii\data\ActiveDataProvider $dataProvider
  * @var backend\models\search\EmployeeSearch $searchModel
  */
-$this->title = Yii::t('employee', 'Employees List');
+$this->title = Yii::t('app', 'Employees');
 $this->params['breadcrumbs'][] = $this->title;
 $employees = $dataProvider->getModels();
 ?>
@@ -23,7 +23,7 @@ $employees = $dataProvider->getModels();
 </div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('employee', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
 <?php $this->endBlock() ?>
@@ -35,9 +35,9 @@ $employees = $dataProvider->getModels();
                 <div class="ibox-content">
                     <form>
                         <div class="input-group">
-                            <input type="text" placeholder="Search employee (full name, user name, email) " class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
+                            <input type="text" placeholder="<?= Yii::t("app", "Search employee") ?>" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> Search</button>
+                                <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> <?= Yii::t("app", "Search") ?></button>
                             </span>
                         </div>
                     </form>
@@ -69,7 +69,6 @@ $employees = $dataProvider->getModels();
                                         </tbody>                                        
                                     </table>           
                                     </tr>
-                                    <div class="summary">Showing <b>21-40</b> of <b>100</b> items.</div>
                                     <?= LinkPager::widget([ 'pagination' => $dataProvider->getPagination()]); ?>
                                 </div>
                             </div>

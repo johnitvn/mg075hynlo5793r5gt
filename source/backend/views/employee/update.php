@@ -8,10 +8,9 @@ use yii\widgets\Breadcrumbs;
  * @var yii\web\View $this
  * @var backend\models\Employee $model
  */
-$this->title = 'Employee ' . $model->id . ', ' . Yii::t('employee', 'Edit');
-$this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => '@' . $model->username, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('employee', 'Edit');
+$this->title = Yii::t('app', 'Edit Employee') . ' "' . $model->fullname . '"';
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Employees'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
 ?>
 
 <?php $this->beginBlock('content-header') ?>
@@ -21,7 +20,7 @@ $this->params['breadcrumbs'][] = Yii::t('employee', 'Edit');
 </div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a(Yii::t('employee', 'Back'), \yii\helpers\Url::previous(), ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Back'), \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
     </div>
 </div>
 <?php $this->endBlock() ?>
@@ -53,7 +52,7 @@ $this->params['breadcrumbs'][] = Yii::t('employee', 'Edit');
                             <?=
                             Html::submitButton(
                                     '<span class="glyphicon glyphicon-check"></span> ' .
-                                    ($model->isNewRecord ? Yii::t('employee', 'Create') : Yii::t('employee', 'Save')), [
+                                    ($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')), [
                                 'id' => 'save-' . $model->formName(),
                                 'class' => 'btn btn-success'
                                     ]
