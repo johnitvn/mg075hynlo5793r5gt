@@ -2,9 +2,7 @@
 
 namespace backend\models\base;
 
-
 use yii\behaviors\TimestampBehavior;
-
 
 /**
  * This is the model class for table "film_category".
@@ -15,23 +13,21 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class BaseFilmCategory extends \yii\db\ActiveRecord
- {
+class BaseFilmCategory extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'film_category';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
+            [['name'], 'required'],
             [['created_at', 'updated_at'], 'integer'],
             [['name', 'description'], 'string', 'max' => 255],
             [['name'], 'unique'],
@@ -41,8 +37,7 @@ class BaseFilmCategory extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'name' => 'Name',
@@ -51,14 +46,14 @@ class BaseFilmCategory extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
-    
+
     /**
      * @inheritdoc
      */
     public function behaviors() {
         return [
-            TimestampBehavior::className(),            
+            TimestampBehavior::className(),
         ];
     }
-    
+
 }

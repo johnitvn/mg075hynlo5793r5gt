@@ -22,6 +22,7 @@
         "bower-asset/chosen": "1.4.2",
         "bower-asset/animate.css": "*",
         "bower-asset/font-awesome": "*",
+        "kartik-v/yii2-datecontrol": "@dev",
         "google/apiclient": "*"
     },
     "require-dev": {

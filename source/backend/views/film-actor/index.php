@@ -65,7 +65,9 @@ function getCountryNameById($model) {
                         'lastPageLabel' => Yii::t('app', 'Last')],
                     'tableOptions' => ['class' => 'table table-striped table-hover'],
                     'columns' => [
+                        'id',
                         'name',
+                        'other_name',
                         [
                             'attribute' => 'birthday',
                             'value' => function($model) {

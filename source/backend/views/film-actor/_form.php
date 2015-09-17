@@ -50,7 +50,8 @@ $('input[name="FilmActor[countryUpdating]"]').on('ifChecked',function(){
 JS;
 $this->registerJs($js);
 
-$countryMap = ArrayHelper::map(Country::find()->all(), 'id', 'name');
+$default = [0 => ''];
+$countryMap = ArrayHelper::merge($default, ArrayHelper::map(Country::find()->all(), 'id', 'name'));
 ?>
 
 
@@ -61,7 +62,6 @@ $countryMap = ArrayHelper::map(Country::find()->all(), 'id', 'name');
                     'id' => 'FilmActor',
                     'layout' => 'horizontal',
                     'enableClientValidation' => true,
-                    'errorSummaryCssClass' => 'error-summary alert alert-error'
         ]);
         ?>
         <div class="panel panel-default">
@@ -69,41 +69,13 @@ $countryMap = ArrayHelper::map(Country::find()->all(), 'id', 'name');
                 <h2><?= $model->name ?></h2>
             </div>
             <div class="panel-body">
-                <?php echo $form->errorSummary($model); ?>
                 <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-                <hr>
-                <div class="form-group field-filmactor-birthday">
-                    <label class="control-label col-sm-3" for="filmactor-birthday">Birthday</label>
-                    <div class="col-sm-6">
-                        <p>             
-                            <?= Html::activeCheckbox($model, 'birthdayUpdatting', ['class' => 'icheck', 'label' => 'Updatting...']) ?>
-                        </p>
-                        <p>   
-                            <?= Html::activeInput('date', $model, 'birthday', ['class' => 'form-control', 'disabled' => true]) ?>
-                        </p>
-                        <div class="help-block help-block-error "></div>
-                    </div>
-                </div>
-                <hr>
-                <div class="form-group field-filmactor-country">
-                    <label class="control-label col-sm-3" for="filmactor-birthday">Country</label>
-                    <div class="col-sm-6">
-                        <p>             
-                            <?= Html::activeCheckbox($model, 'countryUpdating', ['class' => 'icheck', 'label' => 'Updatting...']) ?>
-                        </p>
-                        <p>   
-                            <?= Html::activeDropDownList($model, 'country_id', $countryMap, ['class' => 'form-control', 'prompt' => 'Select country', 'disabled' => true]) ?>
-                        </p>
-                        <div class="help-block help-block-error "></div>
-                    </div>
-                </div>
-                <hr>
+                <?= $form->field($model, 'other_name')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'birthday')->textInput() ?>
+                <?= $form->field($model, 'country_id')->dropDownList($countryMap) ?>
                 <div class="form-group field-filmactor-country">
                     <label class="control-label col-sm-3" for="filmactor-profile">Profile</label>
-                    <div class="col-sm-9">
-                        <p>             
-                            <?= Html::activeCheckbox($model, 'profileUpdating', ['class' => 'icheck', 'label' => 'Updatting...']) ?>
-                        </p>
+                    <div class="col-sm-9">                       
                         <p>   
                             <?=
                             Markdowneditor::widget(
@@ -111,7 +83,7 @@ $countryMap = ArrayHelper::map(Country::find()->all(), 'id', 'name');
                                         'model' => $model,
                                         'attribute' => 'profile',
                                         'markedOptions' => [
-                                            'tables' => false
+                                            'tables' => false,
                                         ]
                             ])
                             ?>

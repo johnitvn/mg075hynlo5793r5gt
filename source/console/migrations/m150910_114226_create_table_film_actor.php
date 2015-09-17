@@ -8,7 +8,8 @@ class m150910_114226_create_table_film_actor extends BaseMigration {
         $this->createTable('film_actor', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
-            'birthday' => $this->integer(),
+            'other_name' => $this->string(),
+            'birthday' => $this->string(),
             'country_id' => $this->integer(),
             'profile' => $this->text(),
             'created_at' => $this->integer(),
