@@ -8,7 +8,7 @@ $(document).ready(function () {
         if ($("body").hasClass('fixed-sidebar')) {
             $('.sidebar-collapse').slimScroll({
                 height: '100%',
-                railOpacity: 0.9,
+                railOpacity: 0.9
             });
         }
     });
@@ -18,7 +18,7 @@ $(document).ready(function () {
     $("[data-toggle='tooltip']").tooltip();
     $("[data-toggle='popover']").popover();
     // Add slimscroll to element
-    $('.full-height-scroll').slimscroll({height: '100%'})
+    $('.full-height-scroll').slimscroll({height: '100%'});
 
     // Collapse ibox function
     $('.collapse-link:not(.binded)').addClass("binded").click(function () {

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+ROOTDIR=$(dirname $BASEDIR)
+
+php $ROOTDIR/bin/yii  asset/compress $ROOTDIR/backend/config/assets/config.php $ROOTDIR/backend/config/assets/bundles.php
