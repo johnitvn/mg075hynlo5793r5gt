@@ -6,5 +6,4 @@ return [
     ['label' => 'Film Category', 'icon' => 'fa fa-tree', 'url' => ['film-category/index']],
     ['label' => 'Film Actor', 'icon' => 'fa fa-star', 'url' => ['film-actor/index']],
     ['label' => 'Country', 'icon' => 'fa fa-list', 'url' => ['country/index']],
-    ['label' => 'Release Year', 'icon' => 'fa fa-calendar', 'url' => ['film-release-year/index']],
 ];
