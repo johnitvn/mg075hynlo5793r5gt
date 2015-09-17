@@ -2,10 +2,12 @@
 
 namespace backend\models\base;
 
-use Yii;
+
+use yii\behaviors\TimestampBehavior;
+
 
 /**
- * This is the base-model class for table "employee".
+ * This is the model class for table "employee".
  *
  * @property integer $id
  * @property string $username
@@ -22,11 +24,8 @@ use Yii;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Employee extends \yii\db\ActiveRecord
+class BaseEmployee extends \yii\db\ActiveRecord
 {
-
-
-
     /**
      * @inheritdoc
      */
@@ -48,7 +47,7 @@ class Employee extends \yii\db\ActiveRecord
             [['phone'], 'string', 'max' => 16],
             [['username'], 'unique'],
             [['email'], 'unique'],
-            [['password_reset_token'], 'unique']
+            [['password_reset_token'], 'unique'],
         ];
     }
 
@@ -58,24 +57,30 @@ class Employee extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('release_year', 'ID'),
-            'username' => Yii::t('release_year', 'Username'),
-            'email' => Yii::t('release_year', 'Email'),
-            'avatar' => Yii::t('release_year', 'Avatar'),
-            'fullname' => Yii::t('release_year', 'Fullname'),
-            'gender' => Yii::t('release_year', 'Gender'),
-            'birthday' => Yii::t('release_year', 'Birthday'),
-            'phone' => Yii::t('release_year', 'Phone'),
-            'auth_key' => Yii::t('release_year', 'Auth Key'),
-            'password_hash' => Yii::t('release_year', 'Password Hash'),
-            'password_reset_token' => Yii::t('release_year', 'Password Reset Token'),
-            'status' => Yii::t('release_year', 'Status'),
-            'created_at' => Yii::t('release_year', 'Created At'),
-            'updated_at' => Yii::t('release_year', 'Updated At'),
+            'id' => 'ID',
+            'username' => 'Username',
+            'email' => 'Email',
+            'avatar' => 'Avatar',
+            'fullname' => 'Fullname',
+            'gender' => 'Gender',
+            'birthday' => 'Birthday',
+            'phone' => 'Phone',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password Hash',
+            'password_reset_token' => 'Password Reset Token',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
-
-
-
-
+    
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
+        return [
+            TimestampBehavior::className(),            
+        ];
+    }
+    
 }

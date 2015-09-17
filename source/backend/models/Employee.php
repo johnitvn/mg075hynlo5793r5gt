@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use Yii;
-use \backend\models\base\Employee as BaseEmployee;
+use \backend\models\base\BaseEmployee;
 use yii\web\IdentityInterface;
 
 /**
