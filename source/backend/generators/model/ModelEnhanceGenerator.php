@@ -8,6 +8,10 @@ use Yii;
 
 class ModelEnhanceGenerator extends ModelGenerator {
 
+    public $useTimestampBehavior = true;
+    public $useBlameableBehavior = false;
+    public $useSluggableBehavior = false;
+
     /**
      * @inheritdoc
      */

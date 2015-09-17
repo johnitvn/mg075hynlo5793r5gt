@@ -18,11 +18,23 @@ echo "<?php\n";
 
 namespace <?= $generator->ns ?>\base;
 
+
 <?php
 if ($generator->enableI18N) {
     echo 'use Yii;';
 }
+if ($generator->useTimestampBehavior) {
+    echo 'use yii\behaviors\TimestampBehavior;';
+}
+if ($generator->useBlameableBehavior) {
+    echo 'use yii\behaviors\BlameableBehavior;';
+}
+if ($generator->useSluggableBehavior) {
+    echo 'use yii\behaviors\SluggableBehavior;';
+}
 ?>
+
+
 
 /**
  * This is the model class for table "<?= $generator->generateTableName($tableName) ?>".
@@ -100,4 +112,25 @@ class Base<?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\'
         return new <?= $queryClassFullName ?>(get_called_class());
     }
 <?php endif; ?>
+    
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
+        return [
+<?php
+if ($generator->useTimestampBehavior) {
+    echo '            TimestampBehavior::className(),';
+}
+if ($generator->useBlameableBehavior) {
+    echo '            BlameableBehavior::className(),';
+}
+if ($generator->useSluggableBehavior) {
+    echo '            SluggableBehavior::className(),';
+}
+?>
+            
+        ];
+    }
+    
 }
