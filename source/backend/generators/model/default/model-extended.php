@@ -23,6 +23,5 @@ use \<?= $generator->ns ?>\base\Base<?= $className ?>;
 /**
  * This is the model class for table "<?= $tableName ?>".
  */
-class <?= $className ?> extends Base<?= $className . "\n" ?>
-{
+class <?= $className ?> extends Base<?= $className . "\n" ?> {
 }

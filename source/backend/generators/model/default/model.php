@@ -49,8 +49,7 @@ if ($generator->useSluggableBehavior) {
 <?php endforeach; ?>
 <?php endif; ?>
  */
-class Base<?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . "\n" ?>
-{
+class Base<?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . "\n" ?> {
     /**
      * @inheritdoc
      */
