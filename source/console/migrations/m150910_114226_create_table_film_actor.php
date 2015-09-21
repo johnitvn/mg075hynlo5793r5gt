@@ -12,6 +12,8 @@ class m150910_114226_create_table_film_actor extends BaseMigration {
             'birthday' => $this->string(),
             'country_id' => $this->integer(),
             'profile' => $this->text(),
+            'created_by' => $this->integer(),
+            'updated_by' => $this->integer(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
                 ], $this->tableOptions);

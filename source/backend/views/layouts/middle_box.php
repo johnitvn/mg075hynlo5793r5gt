@@ -1,9 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use backend\assets\MainlyAsset;
+use backend\assets\AppAsset;
 
-MainlyAsset::register($this);
+AppAsset::register($this);
 ?>
 
 

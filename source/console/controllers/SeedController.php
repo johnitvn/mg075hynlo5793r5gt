@@ -69,7 +69,9 @@ class SeedController extends Controller {
             'phone' => '0986804874',
             'password' => 'John1621993',
             'confirm_password' => 'John1621993',
-            'gender' => Employee::FAMALE,
+            'gender' => Employee::MALE,
+            'created_by' => 0,
+            'updated_by' => 0,
             'created_at' => time(),
             'updated_at' => time(),
         ]);
@@ -77,13 +79,13 @@ class SeedController extends Controller {
 
 
         foreach ($this->seed_category as $cat) {
-            $employee = new FilmCategory([
+            $category = new FilmCategory([
                 'name' => $cat,
                 'description' => '',
                 'created_at' => time(),
                 'updated_at' => time(),
             ]);
-            $employee->save();
+            $category->save();
         }
     }
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Message translations.
  *
@@ -18,22 +17,28 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Add New' => '',
-    'Are you sure to delete this item?' => '',
+    '#INVALID' => '',
+    'Active' => 'Đang hoạt động',
+    'Add New' => 'Thêm mới',
+    'Are you sure to delete this item?' => 'Bạn có chắc chắn muốn xóa item này?',
+    'Assign Role' => 'Gán vai trò',
     'Auth Key' => '',
     'Avatar' => 'Ảnh đại diện',
     'Back' => 'Quay lại',
     'Birthday' => 'Ngày sinh',
+    'Block' => 'Chặn',
+    'Blocked' => 'Bị Chặn',
     'Cancel' => 'Hủy',
     'Comfirm Passwords don\'t match' => '',
     'Confirm Password' => '',
-    'Contact Information' => '',
     'Countries' => 'Quốc gia',
     'Country ID' => '',
     'Create' => 'Tạo',
     'Created At' => 'Tạo lúc',
+    'Created By' => 'Tạo bởi',
     'Data provided by' => 'Dữ liệu cung cấp bởi',
     'Delete' => 'Xóa',
+    'Deleted' => 'Đã Xóa',
     'Description' => 'Mô tả',
     'Edit' => 'Sửa',
     'Edit Employee' => 'Sửa nhân viên',
@@ -47,13 +52,15 @@ return [
     'Gender' => 'Giới tính',
     'Home' => 'Trang chủ',
     'ID' => '',
+    'Information' => 'Thông tin',
     'Last' => 'Cuối',
     'Log out' => 'Đăng xuất',
-    'Male' => '',
+    'Male' => 'Nam',
     'Meanwhile, you may return to Home' => 'Trong khi đó, bạn có thể trở về Trang chủ',
     'Monthly' => 'Tháng',
     'Name' => 'Tên',
     'New' => 'Mới',
+    'Not yet assign any role for this employee' => 'Chưa chỉ định bất kỳ vai trò nào cho nhân viên này',
     'Other Name' => 'Tên khác',
     'Password' => 'Mật khẩu',
     'Password Hash' => '',
@@ -71,6 +78,7 @@ return [
     'This username has already been taken' => 'Username này đã được sử dụng',
     'Traffic Overview' => 'Tổng quan lưu lượng truy cập',
     'Updated At' => 'Sửa lúc',
+    'Updated By' => 'Sửa bởi',
     'Username' => 'Tên đăng nhập',
     'View' => 'Xem',
 ];

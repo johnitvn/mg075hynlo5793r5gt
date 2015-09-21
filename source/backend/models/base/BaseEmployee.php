@@ -4,6 +4,7 @@ namespace backend\models\base;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "employee".
@@ -20,6 +21,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property integer $status
+ * @property integer $created_by
+ * @property integer $updated_by
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -38,7 +41,7 @@ class BaseEmployee extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             [['username', 'email', 'fullname', 'auth_key', 'password_hash'], 'required'],
-            [['gender', 'birthday', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['gender', 'birthday', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['username', 'email', 'fullname', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['avatar', 'auth_key'], 'string', 'max' => 32],
             [['phone'], 'string', 'max' => 16],
@@ -65,6 +68,8 @@ class BaseEmployee extends \yii\db\ActiveRecord {
             'password_hash' => Yii::t('app', 'Password Hash'),
             'password_reset_token' => Yii::t('app', 'Password Reset Token'),
             'status' => Yii::t('app', 'Status'),
+            'created_by' => Yii::t('app', 'Created By'),
+            'updated_by' => Yii::t('app', 'Updated By'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
@@ -76,6 +81,7 @@ class BaseEmployee extends \yii\db\ActiveRecord {
     public function behaviors() {
         return [
             TimestampBehavior::className(),
+            BlameableBehavior::className(),
         ];
     }
 

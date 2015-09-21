@@ -7,8 +7,8 @@
 $security = Yii::$app->getSecurity();
 
 $statusArr = [
-    backend\models\base\Employee::STATUS_ACTIVE,
-    backend\models\base\Employee::STATUS_BLOCK,
+    backend\models\base\Employee::STATUS_ACTIVED,
+    backend\models\base\Employee::STATUS_BLOCKED,
     backend\models\base\Employee::STATUS_DELETED,
 ];
 

@@ -14,7 +14,7 @@ class Employee extends BaseEmployee implements IdentityInterface {
     const MALE = 0;
     const FAMALE = 1;
     const STATUS_DELETED = 0;
-    const STATUS_BLOCK = 5;
+    const STATUS_BLOCKED = 5;
     const STATUS_ACTIVE = 10;
     const USERNAME_REGEXP = '/^[a-zA-Z0-9]+$/';
 
@@ -59,7 +59,7 @@ class Employee extends BaseEmployee implements IdentityInterface {
             'fullnameLength' => ['fullname', 'string', 'min' => 3, 'max' => 255],
             // status rule
             'statusDefault' => ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            'statusRange' => ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_BLOCK, self::STATUS_DELETED]],
+            'statusRange' => ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_BLOCKED, self::STATUS_DELETED]],
             // phone rule
             'phoneLength' => ['phone', 'string', 'max' => 16],
             // avatar rule
