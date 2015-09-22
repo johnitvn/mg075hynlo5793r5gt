@@ -2,50 +2,56 @@
 
 namespace backend\controllers;
 
+use Yii;
 use backend\models\FilmCategory;
 use backend\models\search\FilmCategorySearch;
 use yii\web\Controller;
-use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use yii\helpers\Url;
 
 /**
  * FilmCategoryController implements the CRUD actions for FilmCategory model.
  */
-class FilmCategoryController extends Controller {
-
-    /**
-     * @var boolean whether to enable CSRF validation for the actions in this controller.
-     * CSRF validation is enabled only when both this property and [[Request::enableCsrfValidation]] are true.
-     */
-    public $enableCsrfValidation = true;
+class FilmCategoryController extends Controller
+{
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
 
     /**
      * Lists all FilmCategory models.
      * @return mixed
      */
-    public function actionIndex() {
-        $searchModel = new FilmCategorySearch;
+    public function actionIndex()
+    {
+        $searchModel = new FilmCategorySearch();
         $dataProvider = $searchModel->search(isset($_GET['q']) ? $_GET['q'] : null);
+       
         Url::remember();
-        \Yii::$app->session['__crudReturnUrl'] = null;
-
         return $this->render('index', [
-                    'dataProvider' => $dataProvider,
-                    'searchModel' => $searchModel,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
      * Displays a single FilmCategory model.
      * @param integer $id
-     *
      * @return mixed
      */
-    public function actionView($id) {
-        \Yii::$app->session['__crudReturnUrl'] = Url::previous();
-        Url::remember();
+    public function actionView($id)
+    {
         return $this->render('view', [
-                    'model' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -54,20 +60,17 @@ class FilmCategoryController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate() {
-        $model = new FilmCategory;
+    public function actionCreate()
+    {
+        $model = new FilmCategory();
 
-        try {
-            if ($model->load($_POST) && $model->save()) {
-                return $this->redirect(Url::previous());
-            } elseif (!\Yii::$app->request->isPost) {
-                $model->load($_GET);
-            }
-        } catch (\Exception $e) {
-            $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();
-            $model->addError('_exception', $msg);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-        return $this->render('create', ['model' => $model]);
     }
 
     /**
@@ -76,14 +79,15 @@ class FilmCategoryController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id) {
+    public function actionUpdate($id)
+    {
         $model = $this->findModel($id);
 
-        if ($model->load($_POST) && $model->save()) {
-            return $this->redirect(Url::previous());
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                        'model' => $model,
+                'model' => $model,
             ]);
         }
     }
@@ -94,28 +98,11 @@ class FilmCategoryController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id) {
-        try {
-            $this->findModel($id)->delete();
-        } catch (\Exception $e) {
-            $msg = (isset($e->errorInfo[2])) ? $e->errorInfo[2] : $e->getMessage();
-            \Yii::$app->getSession()->setFlash('error', $msg);
-            return $this->redirect(Url::previous());
-        }
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
 
-        // TODO: improve detection
-        $isPivot = strstr('$id', ',');
-        if ($isPivot == true) {
-            return $this->redirect(Url::previous());
-        } elseif (isset(\Yii::$app->session['__crudReturnUrl']) && \Yii::$app->session['__crudReturnUrl'] != '/') {
-            Url::remember(null);
-            $url = \Yii::$app->session['__crudReturnUrl'];
-            \Yii::$app->session['__crudReturnUrl'] = null;
-
-            return $this->redirect($url);
-        } else {
-            return $this->redirect(['index']);
-        }
+        return $this->redirect(['index']);
     }
 
     /**
@@ -123,14 +110,14 @@ class FilmCategoryController extends Controller {
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return FilmCategory the loaded model
-     * @throws HttpException if the model cannot be found
+     * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id) {
+    protected function findModel($id)
+    {
         if (($model = FilmCategory::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new HttpException(404, 'The requested page does not exist.');
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
 }

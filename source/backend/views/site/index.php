@@ -32,20 +32,24 @@ gapi.analytics.ready(function () {
         }).execute();
     });        
 JS;
-$this->registerJs($googleAnalyticsJs);
+if (Yii::$app->getUser()->can('trafic_overview')) {
+    $this->registerJs($googleAnalyticsJs);
+}
 ?>
 
 <div class="row">
-    <div class="col-lg-8">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <span class="label label-success  pull-right"><?= Yii::t("app", "Monthly") ?></span>
-                <h5><?= Yii::t("app", "Traffic Overview") ?>&nbsp;<small><?= Yii::t("app", "Data provided by") ?>&nbsp;<a href="https://www.google.com/analytics">Google Analytis</a></small></h5>      
-            </div>
-            <div class="ibox-content">
-                <div id="overview-chart"></div>
+    <?php if (Yii::$app->getUser()->can('trafic_overview')): ?>
+        <div class="col-lg-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-success  pull-right"><?= Yii::t("app", "Monthly") ?></span>
+                    <h5><?= Yii::t("app", "Traffic Overview") ?>&nbsp;<small><?= Yii::t("app", "Data provided by") ?>&nbsp;<a href="https://www.google.com/analytics">Google Analytis</a></small></h5>      
+                </div>
+                <div class="ibox-content">
+                    <div id="overview-chart"></div>
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 </div>
 

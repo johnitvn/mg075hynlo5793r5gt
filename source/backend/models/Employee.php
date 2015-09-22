@@ -77,6 +77,7 @@ class Employee extends BaseEmployee implements IdentityInterface {
         return [
             'create' => ['fullname', 'username', 'email', 'password', 'confirm_password'],
             'update' => ['fullname', 'email', 'phone', 'gender', 'birthday'],
+            'change_status' => ['status'],
             'change_password' => ['password'],
         ];
     }
@@ -165,6 +166,11 @@ class Employee extends BaseEmployee implements IdentityInterface {
 
     public static function findByUsername($username) {
         return Employee::findOne(['username' => $username]);
+    }
+
+    public function delete() {
+        $this->status = self::STATUS_DELETED;
+        return $this->save();
     }
 
 }

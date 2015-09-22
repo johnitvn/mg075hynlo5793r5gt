@@ -52,9 +52,6 @@ return [
             'class' => 'backend\components\GoogleAnalyticsService',
             'viewId' => '95454412'
         ],
-        'assetManager' => [
-            'bundles' => require(__DIR__ . '/assets/bundles.php'),
-        ],
     ],
     'as beforeRequest' => [
         'class' => 'yii\filters\AccessControl',
@@ -72,3 +69,5 @@ return [
     ],
     'params' => $params,
 ];
+
+

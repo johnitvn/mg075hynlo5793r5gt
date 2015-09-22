@@ -1,85 +1,57 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\widgets\Breadcrumbs;
 
-/**
- * @var yii\web\View $this
- * @var yii\data\ActiveDataProvider $dataProvider
- * @var backend\models\search\FilmCategorySearch $searchModel
- */
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\search\FilmCategorySearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
 $this->title = Yii::t('app', 'Film Categories');
 $this->params['breadcrumbs'][] = $this->title;
-
-function urlCreator($action, $model, $key, $index) {
-    // using the column name as key, not mapping to 'id' like the standard generator
-    $params = is_array($key) ? $key : [$model->primaryKey()[0] => (string) $key];
-    $params[0] = \Yii::$app->controller->id ? \Yii::$app->controller->id . '/' . $action : $action;
-    return Url::toRoute($params);
-}
 ?>
-<?php $this->beginBlock('content-header') ?>
-<div class="col-sm-8">
+
+<?php $this->beginBlock('content-header') ?><div class="col-sm-8">
     <h2><?= Html::encode($this->title) ?></h2>
-    <?= Breadcrumbs::widget([ 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?>
-</div>
+    <?= Breadcrumbs::widget([ 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?></div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>
-    </div>
+        <?= Html::a('<span class="glyphicon glyphicon-plus"></span>' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>    </div>
 </div>
 <?php $this->endBlock() ?>
 
-<div class="giiant-crud film-category-index">
-
-
-    <?php \yii\widgets\Pjax::begin(['id' => 'pjax-main', 'enableReplaceState' => false, 'linkSelector' => '#pjax-main ul.pagination a, th a', 'clientOptions' => ['pjax:success' => 'function(){alert("yo")}']]) ?>
-
-    <div class="panel panel-default">      
-
-        <div class="panel-body">
-
+<div class="film-category-index">
+    <div class="panel panel-default">    
+        <div class="panel-body"> 
             <form>
                 <div class="input-group">
-                    <input type="text" placeholder="Search employee (full name, user name, email) " class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
+                    <input type="text" placeholder="<?=Yii::t('app', 'Search film-category')?>" class="input form-control" name="q" value="">
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> <?=Yii::t('app', 'Search')?></button>
                     </span>
                 </div>
-            </form>
+            </form>          
             <div class="table-responsive m-t">
-                <?=
-                GridView::widget([
+                                    <?= GridView::widget([
                     'layout' => '{items}{pager}',
                     'dataProvider' => $dataProvider,
                     'pager' => [
-                        'class' => yii\widgets\LinkPager::className(),
-                        'firstPageLabel' => Yii::t('app', 'First'),
-                        'lastPageLabel' => Yii::t('app', 'Last')
+                    'class' => yii\widgets\LinkPager::className(),
+                    'firstPageLabel' => Yii::t('app', 'First'),
+                    'lastPageLabel' => Yii::t('app', 'Last')
                     ],
                     'tableOptions' => ['class' => 'table table-striped table-hover'],
-                    'columns' => [
-                        'id',
-                        'name',
-                        'description',
-                        [
-                            'class' => 'yii\grid\ActionColumn',
-                            'header' => 'Action',
-                            'urlCreator' => 'urlCreator',
-                            'contentOptions' => ['nowrap' => 'nowrap']
-                        ],
+                        'columns' => [
+                                    'id',
+                'name',
+                'description',
+                'created_at',
+                'updated_at',
+                    ['class' => 'backend\components\grid\ActionColumn'],
                     ],
-                ]);
-                ?>
-            </div>
-
+                    ]); ?>
+                            </div>
         </div>
-
     </div>
-
-    <?php \yii\widgets\Pjax::end() ?>
-
-
 </div>

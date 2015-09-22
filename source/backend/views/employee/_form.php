@@ -2,53 +2,31 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use \dmstr\bootstrap\Tabs;
 
-/**
- * @var yii\web\View $this
- * @var backend\models\Employee $model
- * @var yii\widgets\ActiveForm $form
- */
+/* @var $this yii\web\View */
+/* @var $model backend\models\Employee */
+/* @var $form yii\widgets\ActiveForm */
 ?>
-<div class="row">
-    <div class="col-lg-8">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="employee-form">
-                    <?php
-                    $form = ActiveForm::begin([
-                                'id' => 'Employee',
-                                'layout' => 'horizontal',
-                                'enableClientValidation' => true,
-                                'errorSummaryCssClass' => 'error-summary alert alert-error'
-                                    ]
-                    );
-                    ?>
 
-                    <div class="">
-                        <?php echo $form->errorSummary($model); ?>
-                        <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'password')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'confirm_password')->textInput(['maxlength' => true]) ?>            
-                        <hr/>
-                        <?=
-                        Html::submitButton(
-                                '<span class="glyphicon glyphicon-check"></span> ' .
-                                ($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')), [
-                            'id' => 'save-' . $model->formName(),
-                            'class' => 'btn btn-success'
-                                ]
-                        );
-                        ?>
-
-                        <?php ActiveForm::end(); ?>
-                    </div>
-
-                </div>
-
-            </div>
-
+<div class="panel panel-default">
+    <?php
+    $form = ActiveForm::begin([
+                'layout' => 'horizontal',
+                'enableClientValidation' => true,
+    ]);
+    ?>
+    <div class="panel-body">
+        <div class="employee-form">
+            <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'gender')->textInput() ?>
+            <?= $form->field($model, 'birthday')->textInput() ?>
+            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>            
         </div>
     </div>
+    <div class="panel-footer">
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
 </div>

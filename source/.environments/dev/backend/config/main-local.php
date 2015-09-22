@@ -24,7 +24,8 @@ if (!YII_ENV_TEST) {
         // Alow all local network ips
         'allowedIPs' => ['192.168.1.*', '172.16.*', '10.*', '127.0.0.1', '::1'],
         'generators' => [
-            'model-enhance'=>backend\generators\model\ModelEnhanceGenerator::className(),
+            'crud-enhance' => backend\generators\crud\CrudlEnhanceGenerator::className(),
+            'model-enhance' => backend\generators\model\ModelEnhanceGenerator::className(),
         ]
     ];
 }

@@ -5,12 +5,12 @@ namespace backend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\FilmCategory;
+use backend\models\FilmActor;
 
 /**
- * FilmCategorySearch represents the model behind the search form about `backend\models\FilmCategory`.
+ * FilmActorSearch represents the model behind the search form about `backend\models\FilmActor`.
  */
-class FilmCategorySearch extends FilmCategory
+class FilmActorSearch extends FilmActor
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class FilmCategorySearch extends FilmCategory
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'description'], 'safe'],
+            [['id', 'country_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'other_name', 'birthday', 'profile'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class FilmCategorySearch extends FilmCategory
      */
     public function search($searchQuery)
     {
-        $query = FilmCategory::find();
+        $query = FilmActor::find();
 
        
         if($searchQuery!==null){

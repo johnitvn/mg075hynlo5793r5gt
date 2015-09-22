@@ -58,6 +58,40 @@ class SeedController extends Controller {
 
     public function actionDev() {
         $this->actionProd();
+        for ($index = 0; $index < 27; $index++) {
+            $employee = new Employee([
+                'scenario' => 'create',
+                'fullname' => 'Demo So ' . $index,
+                'username' => "demo$index",
+                'email' => "demo$index@gmail.com",
+                'phone' => 'demo',
+                'password' => "demo$index",
+                'confirm_password' => "demo$index",
+                'gender' => Employee::MALE,
+                'created_by' => 0,
+                'updated_by' => 0,
+                'created_at' => time(),
+                'updated_at' => time(),
+            ]);
+            if ($employee->save()) {
+                $auth = \Yii::$app->getAuthManager();
+                if (($index % 2) == 0) {
+                    $auth->assign($auth->getRole('editor'), $employee->id);
+                } else {
+                    $auth->assign($auth->getRole('collaborator'), $employee->id);
+                }
+            }
+        }
+
+        foreach ($this->seed_category as $cat) {
+            $category = new FilmCategory([
+                'name' => $cat,
+                'description' => '',
+                'created_at' => time(),
+                'updated_at' => time(),
+            ]);
+            $category->save();
+        }
     }
 
     public function actionProd() {
@@ -76,6 +110,9 @@ class SeedController extends Controller {
             'updated_at' => time(),
         ]);
         $employee->save();
+
+        $auth = \Yii::$app->getAuthManager();
+        $auth->assign($auth->getRole('administrator'), $employee->id);
 
 
         foreach ($this->seed_category as $cat) {

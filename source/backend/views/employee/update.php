@@ -1,69 +1,33 @@
 <?php
 
-use yii\bootstrap\Html;
-use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
 
-/**
- * @var yii\web\View $this
- * @var backend\models\Employee $model
- */
-$this->title = Yii::t('app', 'Edit Employee') . ' "' . $model->fullname . '"';
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Employee */
+
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Employee',
+]) . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Employees'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
+$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 
-<?php $this->beginBlock('content-header') ?>
-<div class="col-sm-8">
+<?php $this->beginBlock('content-header') ?><div class="col-sm-8">
     <h2><?= Html::encode($this->title) ?></h2>
-    <?= Breadcrumbs::widget([ 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?>
-</div>
+    <?= Breadcrumbs::widget([ 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?></div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a(Yii::t('app', 'Back'), \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-    </div>
+        <?= Html::a('<span class="glyphicon glyphicon-menu-left"></span>' . Yii::t('app', 'Back'), Url::previous(), ['class' => 'btn btn-default']) ?>    </div>
 </div>
 <?php $this->endBlock() ?>
+<div class="employee-update">
 
-<div class="giiant-crud employee-update">   
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="employee-form">
-                        <?php
-                        $form = ActiveForm::begin([
-                                    'id' => 'Employee',
-                                    'layout' => 'horizontal',
-                                    'enableClientValidation' => true,
-                                    'errorSummaryCssClass' => 'error-summary alert alert-error'
-                                        ]
-                        );
-                        ?>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 
-                        <div class="">
-                            <?php echo $form->errorSummary($model); ?>
-                            <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
-                            <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-                            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
-                            <?= $form->field($model, 'birthday')->textInput(['data-mask' => '99/99/9999']) ?>
-                            <?= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
-                            <hr/>
-                            <?=
-                            Html::submitButton(
-                                    '<span class="glyphicon glyphicon-check"></span> ' .
-                                    ($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')), [
-                                'id' => 'save-' . $model->formName(),
-                                'class' => 'btn btn-success'
-                                    ]
-                            );
-                            ?>
-
-                            <?php ActiveForm::end(); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

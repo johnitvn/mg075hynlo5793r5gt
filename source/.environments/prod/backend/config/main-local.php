@@ -1,9 +1,13 @@
 <?php
+
 return [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '',
+        ],
+        'assetManager' => [
+            'bundles' => require(__DIR__ . '/assets/bundles.php'),
         ],
     ],
 ];

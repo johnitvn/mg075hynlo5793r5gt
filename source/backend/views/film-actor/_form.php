@@ -22,35 +22,7 @@ CSS;
 
 $this->registerCss($css);
 
-$js = <<<JS
-$('input').iCheck({
-    checkboxClass: 'icheckbox_flat-blue',
-    radioClass: 'iradio_flat-blue'
-});
-        
-$('#filmactor-birthdayupdatting').on('ifUnchecked',function(){
-    $('#filmactor-birthdayupdatting').removeAttr("checked");
-    $('#filmactor-birthday').removeAttr('disabled');
-});
-        
-$('#filmactor-birthdayupdatting').on('ifChecked',function(){
-    $('#filmactor-birthdayupdatting').attr("checked",true);
-    $('#filmactor-birthday').attr('disabled','true');
-});
-        
-        
-$('input[name="FilmActor[countryUpdating]"]').on('ifUnchecked',function(){
-    $('#filmactor-country_id').removeAttr('disabled');
-});
-        
-$('input[name="FilmActor[countryUpdating]"]').on('ifChecked',function(){
-    $('#filmactor-country_id').attr('disabled','true');
-});
-        
-JS;
-$this->registerJs($js);
-
-$default = [0 => ''];
+$default = [0 => 'Đang cập nhật'];
 $countryMap = ArrayHelper::merge($default, ArrayHelper::map(Country::find()->all(), 'id', 'name'));
 ?>
 

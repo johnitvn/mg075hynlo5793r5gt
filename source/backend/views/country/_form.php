@@ -3,48 +3,25 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-/**
- * @var yii\web\View $this
- * @var backend\models\Country $model
- * @var yii\widgets\ActiveForm $form
- */
+/* @var $this yii\web\View */
+/* @var $model backend\models\Country */
+/* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="row">
-    <div class="col-lg-8">
-
-        <?php
-        $form = ActiveForm::begin([
-                    'id' => 'Country',
-                    'layout' => 'horizontal',
-                    'enableClientValidation' => true,
-                    'errorSummaryCssClass' => 'error-summary alert alert-error'
-                        ]
-        );
-        ?>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2><?= $model->name ?></h2>
-            </div>
-            <div class="panel-body">
-                <?php echo $form->errorSummary($model); ?>
+<div class="panel panel-default">
+    <?php $form = ActiveForm::begin([
+    'layout' => 'horizontal',
+    'enableClientValidation' => true,
+    ]); ?>
+    <div class="panel-body">
+        <div class="country-form">
                 <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-            </div>
-            <div class="panel-footer">
-                <?=
-                Html::submitButton(
-                        '<span class="glyphicon glyphicon-check"></span> ' .
-                        ($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')), [
-                    'id' => 'save-' . $model->formName(),
-                    'class' => 'btn btn-success'
-                        ]
-                );
-                ?>
-            </div>
+
+   
         </div>
-
-        <?php ActiveForm::end(); ?>
     </div>
+    <div class="panel-footer">
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
 </div>
-

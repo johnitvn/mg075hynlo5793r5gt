@@ -1,96 +1,65 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\widgets\Breadcrumbs;
-use yii\widgets\LinkPager;
 
-/**
- * @var yii\web\View $this
- * @var yii\data\ActiveDataProvider $dataProvider
- * @var backend\models\search\EmployeeSearch $searchModel
- */
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\search\EmployeeSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
 $this->title = Yii::t('app', 'Employees');
 $this->params['breadcrumbs'][] = $this->title;
-$employees = $dataProvider->getModels();
 ?>
 
-<?php $this->beginBlock('content-header') ?>
-<div class="col-sm-8">
+    <?php $this->beginBlock('content-header') ?><div class="col-sm-8">
     <h2><?= Html::encode($this->title) ?></h2>
-    <?= Breadcrumbs::widget([ 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?>
-</div>
+<?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?></div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>
-    </div>
+<?= Html::a('<span class="glyphicon glyphicon-plus"></span>' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>    </div>
 </div>
 <?php $this->endBlock() ?>
 
 <div class="employee-index">
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" placeholder="<?= Yii::t("app", "Search employee") ?>" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> <?= Yii::t("app", "Search") ?></button>
-                            </span>
-                        </div>
-                    </form>
-                    <div class = "employees-list">
-                        <div class = "full-height-scroll">
-                            <div class = "table-responsive">
-                                <div class = "grid-view">
-                                    <table class = "table table-striped table-bordered table-hover">                                    
-                                        <tbody>
-                                            <?php foreach ($employees as $employee):
-                                                ?>
-                                                <tr>
-                                                    <td class="employee-avatar">
-                                                        <?php if ($employee->avatar == null): ?>
-                                                            <img alt="image" src="/img/default-avatar/28.jpg">                                                            
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td>
-                                                        <a data-toggle="tab" href="#employee-<?= $employee->id ?>" class="client-link"><?= $employee->fullname ?></a>
-                                                    </td>
-                                                    <td>
-                                                        <?= $employee->username ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $employee->email ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>                                        
-                                    </table>           
-                                    </tr>
-                                    <?= LinkPager::widget([ 'pagination' => $dataProvider->getPagination()]); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="panel panel-default">    
+        <div class="panel-body"> 
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="<?= Yii::t('app', 'Search employee') ?>" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> <?= Yii::t('app', 'Search') ?></button>
+                    </span>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="ibox ">
-                <div class="ibox-content">
-                    <div class="tab-content">
-                        <?php $fistItem = true; ?>
-                        <?php foreach ($employees as $employee): ?>
-                            <div id="employee-<?= $employee->id ?>" class="tab-pane <?= $fistItem ? "active" : "" ?>">
-                                <?= $this->render('_view', ['employee' => $employee]) ?>           
-                            </div>
-                            <?php $fistItem = false; ?>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+            </form>          
+            <div class="table-responsive m-t">
+                <?=
+                GridView::widget([
+                    'layout' => '{items}{pager}',
+                    'dataProvider' => $dataProvider,
+                    'pager' => [
+                        'class' => yii\widgets\LinkPager::className(),
+                        'firstPageLabel' => Yii::t('app', 'First'),
+                        'lastPageLabel' => Yii::t('app', 'Last')
+                    ],
+                    'tableOptions' => ['class' => 'table table-striped table-hover'],
+                    'columns' => [
+                        'id',
+                        [
+                            'attribute' => 'avatar',
+                            'value' => function($model) {
+                                return '<img src="/img/default-avatar/28.jpg"/>';
+                            },
+                            'format' => 'raw',
+                        ],
+                        'fullname',
+                        'username',
+                        'email:email',
+                        ['class' => 'backend\components\grid\ActionColumn'],
+                    ],
+                ]);
+                ?>
             </div>
         </div>
     </div>
-</div> 
+</div>

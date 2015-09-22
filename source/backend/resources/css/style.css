@@ -5162,35 +5162,3 @@ body.skin-3 {
     z-index: 1;
 }
 
-
-/* Employee */
-.employees-list {
-    margin-top: 20px;
-    position: relative;
-    height: 600px;
-}
-
-.employee-detail {
-    position: relative;
-    height: 620px;
-}
-.employees-list table tr td {
-    height: 46px;
-    vertical-align: middle;
-    border: none ;
-}
-.employee-link {
-    font-weight: 600;
-    color: inherit;
-}
-.employee-link:hover {
-    color: inherit;
-}
-.employee-avatar {
-    width: 42px;
-}
-.employee-avatar img {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-}
