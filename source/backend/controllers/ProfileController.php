@@ -6,15 +6,20 @@ use Yii;
 use yii\web\Controller;
 use yii\helpers\Url;
 use backend\models\form\ChangePasswordForm;
+use backend\models\Employee;
 
 /**
  * Sign controller
  */
 class ProfileController extends Controller {
 
-    public function actionIndex() {
+    public function actionIndex($id = null) {
         Url::remember();
-        $model = Yii::$app->getUser()->getIdentity();
+        if ($id == null) {
+            $model = Yii::$app->getUser()->getIdentity();
+        } else {
+            $model = Employee::findIdentity($id);
+        }
         return $this->render('index', ['model' => $model]);
     }
 

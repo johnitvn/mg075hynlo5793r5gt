@@ -29,6 +29,14 @@ class ChangePasswordForm extends Model {
         ];
     }
 
+    public function attributeLabels() {
+        return [
+            'old_password' => Yii::t("app", "Old Paswsord"),
+            'new_password' => Yii::t("app", "New Paswsord"),
+            'confirm_password' => Yii::t("app", "Confirm Password"),
+        ];
+    }
+
     /**
      * Validates the password.
      * This method serves as the inline validation for password.

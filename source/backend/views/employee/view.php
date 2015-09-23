@@ -8,7 +8,7 @@ use backend\models\Employee;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Employee */
 
-$this->title = $model->id;
+$this->title = Yii::t('app', 'Profile of') . ' ' . $model->fullname;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Employees'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
