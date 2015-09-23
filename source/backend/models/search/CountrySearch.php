@@ -45,7 +45,7 @@ class CountrySearch extends Country
 
        
         if($searchQuery!==null){
-        // add conditions that should always apply here
+         $query->andFilterWhere(['like', 'name', $searchQuery]);
         }
         
         $dataProvider = new ActiveDataProvider([

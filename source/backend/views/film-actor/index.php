@@ -26,37 +26,34 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body"> 
             <form>
                 <div class="input-group">
-                    <input type="text" placeholder="<?=Yii::t('app', 'Search film-actor')?>" class="input form-control" name="q" value="">
+                    <input type="text" placeholder="<?= Yii::t('app', 'Search film-actor') ?>" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> <?=Yii::t('app', 'Search')?></button>
+                        <button type="submit" class="btn btn btn-primary"><i class = "fa fa-search"></i> <?= Yii::t('app', 'Search') ?></button>
                     </span>
                 </div>
             </form>          
             <div class="table-responsive m-t">
-                                    <?= GridView::widget([
+                <?=
+                GridView::widget([
                     'layout' => '{items}{pager}',
                     'dataProvider' => $dataProvider,
                     'pager' => [
-                    'class' => yii\widgets\LinkPager::className(),
-                    'firstPageLabel' => Yii::t('app', 'First'),
-                    'lastPageLabel' => Yii::t('app', 'Last')
+                        'class' => yii\widgets\LinkPager::className(),
+                        'firstPageLabel' => Yii::t('app', 'First'),
+                        'lastPageLabel' => Yii::t('app', 'Last')
                     ],
                     'tableOptions' => ['class' => 'table table-striped table-hover'],
-                        'columns' => [
-                                    'id',
-                'name',
-                'other_name',
-                'birthday',
-                'country_id',
-                // 'profile:ntext',
-                // 'created_by',
-                // 'updated_by',
-                // 'created_at',
-                // 'updated_at',
-                    ['class' => 'backend\components\grid\ActionColumn'],
+                    'columns' => [
+                        'id',
+                        'name',
+                        'other_name',
+                        'birthday',
+                        'country_id',
+                        ['class' => 'backend\components\grid\ActionColumn'],
                     ],
-                    ]); ?>
-                            </div>
+                ]);
+                ?>
+            </div>
         </div>
     </div>
 </div>

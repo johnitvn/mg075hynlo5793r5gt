@@ -71,7 +71,7 @@ class EmployeeController extends Controller {
      */
     public function actionCreate() {
         $model = new Employee();
-
+        $model->setScenario("create");
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -89,7 +89,7 @@ class EmployeeController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-
+        $model->setScenario("update");
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

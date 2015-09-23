@@ -1,16 +1,21 @@
 <?php
 
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
-use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Employee */
 
-$this->title = Yii::t('app', 'Create Employee');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Employees'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Profile'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$genderLists = [
+    backend\models\Employee::MALE => Yii::t("app", "Male"),
+    backend\models\Employee::FAMALE => Yii::t("app", "Famale"),
+];
 ?>
 
 <?php $this->beginBlock('content-header') ?><div class="col-sm-8">
@@ -21,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('<span class="glyphicon glyphicon-menu-left"></span>' . Yii::t('app', 'Back'), Url::previous(), ['class' => 'btn btn-default']) ?>    </div>
 </div>
 <?php $this->endBlock() ?>
+<div class="employee-update">
 
-<div class="employee-create">
 
     <div class="panel panel-default">
         <?php
@@ -33,11 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
         <div class="panel-body">
             <div class="employee-form">
-                <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>            
                 <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
-                <?= $form->field($model, 'confirm_password')->passwordInput() ?>
+                <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'gender')->dropDownList($genderLists) ?>
+                <?= $form->field($model, 'birthday')->textInput() ?>
+                <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>            
             </div>
         </div>
         <div class="panel-footer">

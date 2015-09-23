@@ -8,25 +8,8 @@ use backend\models\Employee;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Employee */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Employees'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Profile');
 $this->params['breadcrumbs'][] = $this->title;
-
-$roles = Yii::$app->getAuthManager()->getRolesByUser($model->getId());
-
-switch ($model->status) {
-    case Employee::STATUS_ACTIVE;
-        $status = Yii::t("app", "Active");
-        break;
-    case Employee::STATUS_BLOCKED;
-        $status = Yii::t("app", "Blocked");
-        break;
-    case Employee::STATUS_DELETED;
-        $status = Yii::t("app", "Deleted");
-        break;
-    default :
-        $status = Yii::t("app", "#INVALID");
-}
 ?>
 
 <?php $this->beginBlock('content-header') ?><div class="col-sm-8">
@@ -34,16 +17,8 @@ switch ($model->status) {
     <?= Breadcrumbs::widget([ 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?></div>
 <div class="col-sm-4">
     <div class="title-action">
-        <?= Html::a('<span class="glyphicon glyphicon-menu-left"></span> ' . Yii::t('app', 'Back'), Url::previous(), ['class' => 'btn btn-default']) ?>        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> ' . Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?=
-        Html::a('<span class="glyphicon glyphicon-trash"></span> ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ])
-        ?>
+        <?= Html::a('<span class="glyphicon glyphicon-menu-left"></span> ' . Yii::t('app', 'Back'), Url::previous(), ['class' => 'btn btn-default']) ?>       
+        <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> ' . Yii::t('app', 'Update'), ['update'], ['class' => 'btn btn-primary']) ?>       
     </div>
 </div>
 <?php $this->endBlock() ?>
@@ -72,11 +47,11 @@ switch ($model->status) {
                     <?= $model->attributeLabels()['gender'] ?>
                 </li>
                 <li class="list-group-item">
-                    <span class="pull-right"> <?= $model->birthday == 0 ? Yii::t("app", "Updating") : date("d/m/Y H:i:s", $model->birthday) ?> </span>
+                    <span class="pull-right"> 20/06/1993 </span>
                     <?= $model->attributeLabels()['birthday'] ?>
                 </li>
                 <li class="list-group-item">
-                    <span class="pull-right"><?= ($model->phone == null || empty($model->phone)) ? Yii::t("app", "Updating") : "<a href=\"tel:$model->phone\">$model->phone</a>" ?></span>
+                    <span class="pull-right"><a href="tel:<?= $model->phone ?>"><?= $model->phone ?></a></span>
                     <?= $model->attributeLabels()['phone'] ?>
                 </li>    
                 <li class="list-group-item">
@@ -98,33 +73,8 @@ switch ($model->status) {
                 <li class="list-group-item">
                     <span class="pull-right"><?= date("d/m/Y h:i:s", $model->updated_at) ?> </span>
                     <?= $model->attributeLabels()['updated_at'] ?>
-                </li>     
-                <li class="list-group-item">
-                    <span class="pull-right"> <?= $status ?> </span>
-                    <?= $model->attributeLabels()['status'] ?>
-                </li>   
+                </li>                   
             </ul>
-
-            <strong><?= Yii::t('app', 'Roles') ?></strong>
-            <ul class="list-group clear-list"> 
-                <?php if (count($roles) == 0): ?>
-                    <li class="list-group-item text-warning">
-                        <?= Yii::t("app", "Not yet assign any role for this employee"); ?>
-                    </li>
-                <?php else: ?>
-                    <?php foreach ($roles as $role): ?>
-                        <li class="list-group-item">
-                            <?= ucfirst($role->name) ?>
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </ul>
-            <?php if ($model->status == Employee::STATUS_ACTIVE): ?>
-                <?= Html::a(Yii::t('app', 'Block'), ['block', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
-            <?php else: ?>
-                <?= Html::a(Yii::t('app', 'Unblock'), ['unblock', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
-            <?php endif; ?>
-            <?= Html::a(Yii::t('app', 'Assign Role'), ['assign', 'id' => $model->id], ['class' => 'btn btn-success pull-right']) ?>
         </div>
     </div>
 </div>

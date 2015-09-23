@@ -10,13 +10,12 @@ use backend\models\FilmCategory;
 /**
  * FilmCategorySearch represents the model behind the search form about `backend\models\FilmCategory`.
  */
-class FilmCategorySearch extends FilmCategory
-{
+class FilmCategorySearch extends FilmCategory {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
             [['name', 'description'], 'safe'],
@@ -26,8 +25,7 @@ class FilmCategorySearch extends FilmCategory
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,19 +37,19 @@ class FilmCategorySearch extends FilmCategory
      *
      * @return ActiveDataProvider
      */
-    public function search($searchQuery)
-    {
+    public function search($searchQuery) {
         $query = FilmCategory::find();
 
-       
-        if($searchQuery!==null){
-        // add conditions that should always apply here
+
+        if ($searchQuery !== null) {
+            $query->andFilterWhere(['like', 'name', $searchQuery]);
         }
-        
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-        ]);  
+        ]);
 
         return $dataProvider;
     }
+
 }

@@ -10,13 +10,12 @@ use backend\models\FilmActor;
 /**
  * FilmActorSearch represents the model behind the search form about `backend\models\FilmActor`.
  */
-class FilmActorSearch extends FilmActor
-{
+class FilmActorSearch extends FilmActor {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id', 'country_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name', 'other_name', 'birthday', 'profile'], 'safe'],
@@ -26,8 +25,7 @@ class FilmActorSearch extends FilmActor
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,19 +37,20 @@ class FilmActorSearch extends FilmActor
      *
      * @return ActiveDataProvider
      */
-    public function search($searchQuery)
-    {
+    public function search($searchQuery) {
         $query = FilmActor::find();
 
-       
-        if($searchQuery!==null){
-        // add conditions that should always apply here
+
+        if ($searchQuery !== null) {
+            $query->andFilterWhere(['like', 'name', $searchQuery])
+                    ->andFilterWhere(['like', 'other_name', $searchQuery]);
         }
-        
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-        ]);  
+        ]);
 
         return $dataProvider;
     }
+
 }
