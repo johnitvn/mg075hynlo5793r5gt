@@ -20,8 +20,8 @@ class AppAsset extends AssetBundleExt {
         'yii\bootstrap\BootstrapPluginAsset',
         'backend\assets\shared\MetisMenuAsset',
         'backend\assets\shared\SlimScrollAsset',
-        //'backend\assets\shared\AnimateAsset',
-        //'backend\assets\shared\PaceAsset',
+        'backend\assets\shared\AnimateAsset',
+        'backend\assets\shared\PaceAsset',
         'backend\assets\shared\FontAwesomeAsset',
     ];
 

@@ -12,12 +12,12 @@ $this->title = Yii::t('app', 'Employees');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-    <?php $this->beginBlock('content-header') ?><div class="col-sm-8">
+<?php $this->beginBlock('content-header') ?><div class="col-sm-8">
     <h2><?= Html::encode($this->title) ?></h2>
-<?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?></div>
+    <?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?></div>
 <div class="col-sm-4">
     <div class="title-action">
-<?= Html::a('<span class="glyphicon glyphicon-plus"></span>' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>    </div>
+        <?= Html::a('<span class="glyphicon glyphicon-plus"></span>' . Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-primary']) ?>    </div>
 </div>
 <?php $this->endBlock() ?>
 

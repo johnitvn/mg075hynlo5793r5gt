@@ -16,8 +16,10 @@ class ProfileController extends Controller {
     public function actionIndex($id = null) {
         Url::remember();
         if ($id == null) {
+            $myself = true;
             $model = Yii::$app->getUser()->getIdentity();
         } else {
+            $myself = false;
             $model = Employee::findIdentity($id);
         }
         return $this->render('index', ['model' => $model]);

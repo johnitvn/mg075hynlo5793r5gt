@@ -24,6 +24,11 @@ return [
             'visible' => \Yii::$app->getUser()->can('read_employee')
         ],
         [
+            'label' => Yii::t('app', 'Contacts'),
+            'icon' => 'fa fa-book',
+            'url' => ['contact/index'],
+        ],
+        [
             'label' => Yii::t('app', 'Film Categories'),
             'icon' => 'fa fa-tree',
             'url' => ['film-category/index'],

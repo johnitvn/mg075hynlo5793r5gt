@@ -14,6 +14,11 @@ $this->title = Yii::t('app', 'Update {modelClass}: ', [
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Employees'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+
+$genderLists = [
+    backend\models\Employee::MALE => Yii::t("app", "Male"),
+    backend\models\Employee::FAMALE => Yii::t("app", "Famale"),
+];
 ?>
 
 <?php $this->beginBlock('content-header') ?><div class="col-sm-8">
@@ -37,7 +42,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
             <div class="employee-form">
                 <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'gender')->textInput() ?>
+                <?= $form->field($model, 'gender')->dropDownList($genderLists) ?>
                 <?= $form->field($model, 'birthday')->textInput() ?>
                 <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>            
             </div>
