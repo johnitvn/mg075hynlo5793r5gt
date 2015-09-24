@@ -37,6 +37,7 @@ class AppDocumentController extends Controller {
         $data = unserialize(base64_decode($id));
         $content = $appDoc->readArticle($data['path']);
         $this->view->title = $data['name'];
+        $this->view->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Documents'), 'url' => ['/app-document']];
         $this->view->params['breadcrumbs'][] = ['label' => $data['categoryName'], 'url' => ['/app-document']];
         $this->view->params['breadcrumbs'][] = $data['name'];
         return $this->renderContent($content);

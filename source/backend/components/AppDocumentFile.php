@@ -2,7 +2,6 @@
 
 namespace backend\components;
 
-
 /**
  * Description of GoogleClient
  *
@@ -22,7 +21,7 @@ class AppDocumentFile {
 
     public function init() {
         $basename = basename($this->path);
-        $parts = explode("$", $basename);
+        $parts = explode("$", str_replace('.md', '', $basename));
         $this->order = intval($parts[0]);
         $this->name = $parts[1];
         $this->description = isset($parts[2]) ? $parts[2] : "";

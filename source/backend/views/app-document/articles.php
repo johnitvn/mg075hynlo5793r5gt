@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="widget yellow-bg p-lg text-center">
         <div class="m-b-md">
             <i class="fa fa-warning fa-4x"></i>
-            <h1 class="m-xs"><?= Yii::t('app', 'Document is not avaiable in this language') ?></h1>            
+            <h1 class="m-xs"><?= Yii::t('app', 'Document is not available for this language') ?></h1>            
         </div>
     </div>
 <?php else: ?>
@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
         <div class="faq-item">
             <a  href="<?= Url::to(['/app-document/view', 'id' => $id]) ?>" class="faq-question"><?= $article->name ?></a>
+            <span><?= $article->description ?></span>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>

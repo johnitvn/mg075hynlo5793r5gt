@@ -49,7 +49,7 @@ return [
         'appDoc' => [
             'class' => 'backend\components\AppDocument',
             'root' => '@backend/docs',
-            'categories' => require 'document.php',
+            'config' => '@backend/config/document.php',
         ],
         'google-analytics' => [
             'class' => 'backend\components\GoogleAnalyticsService',

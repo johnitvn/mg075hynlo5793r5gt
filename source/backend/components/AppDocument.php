@@ -16,14 +16,16 @@ use cebe\markdown\Markdown;
  */
 class AppDocument extends Component {
 
-    public $categories;
+    public $config;
     public $root;
     private $rootPath;
     private $categoryObjArr;
+    private $categories;
 
     public function init() {
         parent::init();
         $this->rootPath = Yii::getAlias($this->root);
+        $this->categories = require Yii::getAlias($this->config);
     }
 
     /**
