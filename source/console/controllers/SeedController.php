@@ -14,28 +14,6 @@ use backend\models\FilmCategory;
 class SeedController extends Controller {
 
     private $faker;
-    private $seed_category = [
-        "Phim hành động",
-        "Phim võ thuật",
-        "Phim tâm lý",
-        "Phim hài hước",
-        "Phim hoạt hình",
-        "Phim phiêu lưu",
-        "Phim kinh dị",
-        "Phim hình sự",
-        "Phim chiến tranh",
-        "Phim thần thoại",
-        "Phim viễn tưởng",
-        "Phim cổ trang",
-        "Phim khoa học tài liệu",
-        "Phim âm nhạc",
-        "Phim TV Show",
-        "Anime",
-        "Phim Hàn Quôc",
-        "Phim chiếu rạp",
-        "Phim thuyết minh",
-        "Cao bồi",
-    ];
 
     public function init() {
         parent::init();
@@ -61,10 +39,10 @@ class SeedController extends Controller {
         for ($index = 0; $index < 27; $index++) {
             $employee = new Employee([
                 'scenario' => 'create',
-                'fullname' => 'Demo So ' . $index,
+                'fullname' => 'Demo No ' . $index,
                 'username' => "demo$index",
                 'email' => "demo$index@gmail.com",
-                'phone' => 'demo',
+                'phone' => '09123456789',
                 'password' => "demo$index",
                 'confirm_password' => "demo$index",
                 'gender' => Employee::MALE,
@@ -73,24 +51,6 @@ class SeedController extends Controller {
                 'created_at' => time(),
                 'updated_at' => time(),
             ]);
-            if ($employee->save()) {
-                $auth = \Yii::$app->getAuthManager();
-                if (($index % 2) == 0) {
-                    $auth->assign($auth->getRole('editor'), $employee->id);
-                } else {
-                    $auth->assign($auth->getRole('collaborator'), $employee->id);
-                }
-            }
-        }
-
-        foreach ($this->seed_category as $cat) {
-            $category = new FilmCategory([
-                'name' => $cat,
-                'description' => '',
-                'created_at' => time(),
-                'updated_at' => time(),
-            ]);
-            $category->save();
         }
     }
 
@@ -112,18 +72,6 @@ class SeedController extends Controller {
         $employee->save();
 
         $auth = \Yii::$app->getAuthManager();
-        $auth->assign($auth->getRole('administrator'), $employee->id);
-
-
-        foreach ($this->seed_category as $cat) {
-            $category = new FilmCategory([
-                'name' => $cat,
-                'description' => '',
-                'created_at' => time(),
-                'updated_at' => time(),
-            ]);
-            $category->save();
-        }
     }
 
 }

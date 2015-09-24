@@ -2,6 +2,10 @@
 
 use yii\helpers\Url;
 
+$this->title = Yii::t('app', 'Contacts');
+$this->params['breadcrumbs'][] = $this->title;
+
+
 $js = <<<JS
 function animationHover(element, animation) {
     element = $(element);

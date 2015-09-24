@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Message translations.
  *
@@ -34,6 +33,7 @@ return [
     'Change Password' => 'Đổi mật khẩu',
     'Comfirm Passwords don\'t match' => '',
     'Confirm Password' => 'Xác nhận mật khẩu',
+    'Contacts' => 'Danh bạ',
     'Countries' => 'Quốc gia',
     'Country ID' => '',
     'Create' => 'Tạo',
@@ -83,6 +83,7 @@ return [
     'Roles' => 'Các vai trò',
     'Save' => 'Lưu lại',
     'Search' => 'Tìm kiếm',
+    'Search contact' => '',
     'Search country' => '',
     'Search employee' => 'Tìm kiếm nhân viên',
     'Search film-actor' => '',
