@@ -16,17 +16,6 @@ use backend\models\form\AssignForm;
  */
 class EmployeeController extends Controller {
 
-    /**
-     * @param Action $action the action to be executed.
-     * @return boolean
-     */
-    public function beforeAction($action) {
-        if (!parent::beforeAction($action) || !Yii::$app->getUser()->can('read_employee')) {
-            return false;
-        }
-        return true;
-    }
-
     public function behaviors() {
         return [
             'verbs' => [
@@ -45,7 +34,6 @@ class EmployeeController extends Controller {
     public function actionIndex() {
         $searchModel = new EmployeeSearch();
         $dataProvider = $searchModel->search(isset($_GET['q']) ? $_GET['q'] : null);
-
         Url::remember();
         return $this->render('index', [
                     'searchModel' => $searchModel,

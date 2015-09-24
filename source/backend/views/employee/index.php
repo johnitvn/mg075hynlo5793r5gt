@@ -22,8 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->endBlock() ?>
 
 <div class="employee-index">
-    <div class="panel panel-default">    
-        <div class="panel-body"> 
+    <div class="ibox float-e-margins">    
+        <div class="ibox-title">
+            <h5><?=Yii::t('app','Employee Listing')?></h5>
+        </div>
+        <div class="ibox-content"> 
             <form>
                 <div class="input-group">
                     <input type="text" placeholder="<?= Yii::t('app', 'Search employee') ?>" class="input form-control" name="q" value="<?= isset($_GET['q']) ? $_GET['q'] : "" ?>">

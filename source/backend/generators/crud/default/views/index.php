@@ -39,8 +39,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index">
-    <div class="panel panel-default">    
-        <div class="panel-body"> 
+    <div class="ibox float-e-margins">    
+        <div class="ibox-title">
+            <h5><?='<?=Yii::t(\'app\',\''.$generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))).' Listing\')?>'?></h5>
+        </div>
+        <div class="ibox-content"> 
             <form>
                 <div class="input-group">
                     <input type="text" placeholder="<?= '<?=' . $generator->generateString('Search ' . Inflector::camel2id(StringHelper::basename($generator->modelClass))) . '?>' ?>" class="input form-control" name="q" value="<?='<?= isset($_GET[\'q\']) ? $_GET[\'q\'] : "" ?>'?>">

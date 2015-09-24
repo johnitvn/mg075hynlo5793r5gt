@@ -2,10 +2,10 @@
 
 use console\components\BaseMigration;
 
-class m150924_065627_create_table_agency extends BaseMigration {
+class m150924_065627_create_table_agent extends BaseMigration {
 
     public function up() {
-        $this->createTable('agency', [
+        $this->createTable('agent', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
             'phone' => $this->string()->notNull(),
@@ -19,7 +19,7 @@ class m150924_065627_create_table_agency extends BaseMigration {
     }
 
     public function down() {
-        $this->dropTable('agency');
+        $this->dropTable('agent');
         return true;
     }
 
