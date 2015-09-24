@@ -33,7 +33,9 @@ class LoginForm extends Model {
 
     public function validateUserName($attribute, $params) {
         $employee = $this->getEmployee();
-        if ($employee->status == Employee::STATUS_DELETED) {
+        if ($employee === null) {
+            $this->addError($attribute, Yii::t('app', 'Incorrect username.'));
+        } else if ($employee->status == Employee::STATUS_DELETED) {
             throw new \yii\web\ForbiddenHttpException(Yii::t('app', 'Your account have been deleted.'));
         } else if ($employee->status == Employee::STATUS_BLOCKED) {
             throw new \yii\web\ForbiddenHttpException(Yii::t('app', 'Your account have been blocked.'));
@@ -56,7 +58,7 @@ class LoginForm extends Model {
         if (!$this->hasErrors()) {
             $user = $this->getEmployee();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, Yii::t('app', 'Incorrect username or password.'));
+                $this->addError($attribute, Yii::t('app', 'Incorrect password.'));
             }
         }
     }
